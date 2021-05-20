@@ -26,22 +26,16 @@ Yes, but hopefully not for long! The goal of `chisel.css` is to provide the out 
 
 ## Download
 
-Install with NPM
+Install with NPM (or yarn, or pnpm)
 
 ```sh
 npm i -S chisel.css
 ```
 
-Install with Yarn
+or from CDN
 
-```sh
-yarn add chisel.css
-```
-
-Install with PNPM (our personal preference)
-
-```sh
-pnpm i -S chisel.css
+```html
+<link href="https://unpkg.com/chisel.css" rel="stylesheet" />
 ```
 
 ## CSS Variables
