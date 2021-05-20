@@ -4,7 +4,6 @@ module.exports = {
         require('postcss-nesting')(),
         require('postcss-custom-properties')({ preserve: true }),
         require('postcss-combine-media-query'),
-        require('postcss-custom-properties')(),
         require('autoprefixer')
     ]
 }
