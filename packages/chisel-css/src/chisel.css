@@ -315,7 +315,6 @@ img {
  * ========================================================================== */
 a {
   color: var(--chisel-primary);
-  text-decoration: none;
 
   &:focus,
   &:hover {
