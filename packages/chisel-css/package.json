@@ -1,6 +1,6 @@
 {
   "name": "chisel.css",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A minimalist CSS framework.",
   "main": "dist/chisel.css",
   "files": [
