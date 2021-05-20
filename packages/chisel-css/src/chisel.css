@@ -6,9 +6,10 @@
 :root {
   --chisel-primary: #325476;
   --chisel-neutral-50: #f9fafb;
+  --chisel-neutral-200: #e5e7eb;
   --chisel-neutral-300: #d1d5db;
   --chisel-neutral-500: #6b7280;
-  --chisel-neutral-700: #6b7280;
+  --chisel-neutral-700: #374151;
   --chisel-neutral-900: #111827;
 
   --chisel-h1: 3.052rem;
@@ -21,7 +22,14 @@
 
 /* Base
  * ========================================================================== */
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
 html {
+  box-sizing: border-box;
   font-size: 16px;
 }
 
@@ -129,8 +137,8 @@ input[type="submit"] {
 
   &:focus,
   &:hover {
-    background-color: var(--chisel-neutral-700);
-    border-color: var(--chisel-neutral-700);
+    background-color: var(--chisel-neutral-500);
+    border-color: var(--chisel-neutral-5`00);
     color: var(--chisel-neutral-50);
     outline: 0;
   }
@@ -153,8 +161,8 @@ input[type="submit"] {
     &:focus,
     &:hover {
       background-color: transparent;
-      border-color: var(--chisel-neutral-700);
-      color: var(--chisel-neutral-50);
+      border-color: var(--chisel-neutral-500);
+      color: var(--chisel-neutral-500);
     }
 
     &[disabled] {
@@ -175,7 +183,7 @@ input[type="submit"] {
     &:hover {
       background-color: transparent;
       border-color: transparent;
-      color: var(--chisel-neutral-700);
+      color: var(--chisel-neutral-500);
     }
 
     &[disabled] {
@@ -190,7 +198,7 @@ input[type="submit"] {
 /* Code
  * ========================================================================== */
 code {
-  background: var(--chisel-neutral-300);
+  background: var(--chisel-neutral-200);
   border-radius: 0.4rem;
   margin: 0 0.2rem;
   padding: 0.2rem 0.5rem;
@@ -198,7 +206,7 @@ code {
 }
 
 pre {
-  background: var(--chisel-neutral-300);
+  background: var(--chisel-neutral-200);
   border-left: 3px solid var(--chisel-primary);
   overflow-y: hidden;
   white-space: normal;
@@ -217,6 +225,84 @@ hr {
   border: 0;
   border-top: 1px solid var(--chisel-neutral-300);
   margin: 3rem 0;
+}
+
+/* Forms
+ * ========================================================================== */
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="url"],
+input[type="week"],
+input:not([type]),
+textarea,
+select {
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 1px solid var(--chisel-neutral-300);
+  border-radius: 0.4rem;
+  box-shadow: none;
+  box-sizing: inherit;
+  height: 3rem;
+  padding: 0.6rem 1rem 0.7rem;
+  width: 100%;
+
+  &:focus {
+    border-color: var(--chisel-primary);
+    outline: 0;
+  }
+}
+
+select {
+  /* TODO: Find a way to use CSS variables for the down arrow */
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%23d1d5db" d="M0,0l6,8l6-8"/></svg>')
+    center right no-repeat;
+  padding-right: 3rem;
+
+  &:focus {
+    /* TODO: Find a way to use CSS variables for the down arrow */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%23325476" d="M0,0l6,8l6-8"/></svg>');
+  }
+
+  &[multiple] {
+    background: none;
+    height: auto;
+  }
+}
+
+textarea {
+  min-height: 6.5rem;
+}
+
+label,
+legend {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+fieldset {
+  border-width: 0;
+  padding: 0;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline;
+}
+
+.label-inline {
+  display: inline-block;
+  font-weight: normal;
+  margin-left: 0.5rem;
 }
 
 /* Links
