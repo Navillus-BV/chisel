@@ -102,3 +102,98 @@ blockquote {
     margin-bottom: 0;
   }
 }
+
+/* Buttons
+ * ========================================================================== */
+.button,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  background-color: var(--chisel-primary);
+  border: 2px solid var(--chisel-primary);
+  border-radius: 0.4rem;
+  color: var(--chisel-neutral-50);
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 700;
+  height: 3rem;
+  line-height: 3rem;
+  letter-spacing: 0.05em;
+  padding: 0 3rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  &:focus,
+  &:hover {
+    background-color: var(--chisel-neutral-700);
+    border-color: var(--chisel-neutral-700);
+    color: var(--chisel-neutral-50);
+    outline: 0;
+  }
+
+  &[disabled] {
+    cursor: default;
+    opacity: 0.5;
+
+    &:focus,
+    &:hover {
+      background-color: var(--chisel-primary);
+      border-color: var(--chisel-primary);
+    }
+  }
+
+  &.button-outline {
+    background-color: transparent;
+    color: var(--chisel-primary);
+
+    &:focus,
+    &:hover {
+      background-color: transparent;
+      border-color: var(--chisel-neutral-700);
+      color: var(--chisel-neutral-50);
+    }
+
+    &[disabled] {
+      &:focus,
+      &:hover {
+        border-color: inherit;
+        color: var(--chisel-primary);
+      }
+    }
+  }
+
+  &.button-clear {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--chisel-primary);
+
+    &:focus,
+    &:hover {
+      background-color: transparent;
+      border-color: transparent;
+      color: var(--chisel-neutral-700);
+    }
+
+    &[disabled] {
+      &:focus,
+      &:hover {
+        color: var(--chisel-primary);
+      }
+    }
+  }
+}
+
+/* Links
+ * ========================================================================== */
+a {
+  color: var(--chisel-primary);
+  text-decoration: none;
+
+  &:focus,
+  &:hover {
+    color: var(--chisel-neutral-700);
+  }
+}
