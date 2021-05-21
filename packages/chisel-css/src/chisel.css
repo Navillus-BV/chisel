@@ -55,23 +55,41 @@
 /* Base
  * ========================================================================== */
 *,
-*:after,
-*:before {
-    box-sizing: inherit;
+::before,
+::after {
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+}
+
+::before,
+::after {
+    text-decoration: inherit;
+    vertical-align: inherit;
 }
 
 html {
-    box-sizing: border-box;
-    font-size: 16px;
+    cursor: default;
+    line-height: 1.5;
+    -moz-tab-size: 4;
+    tab-size: 4;
+    -webkit-tap-highlight-color: ;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    word-break: break-word;
 }
 
 body {
+    margin: 0;
     background: var(--chisel-neutral-50);
     color: var(--chisel-neutral-900);
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
         Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     font-weight: 400;
     line-height: 1.75;
+}
+
+main {
+    display: block;
 }
 
 /* Reduced Motion
@@ -100,6 +118,11 @@ strong {
 p {
     margin-top: 0;
     margin-bottom: 1em;
+}
+
+abbr[title] {
+    text-decoration: underline;
+    text-decoration: underline dotted;
 }
 
 h1,
@@ -181,6 +204,7 @@ input[type='submit'] {
     text-decoration: none;
     text-transform: uppercase;
     white-space: nowrap;
+    -webkit-appearance: button;
 
     &:focus,
     &:hover {
@@ -252,6 +276,14 @@ code {
     white-space: no-wrap;
 }
 
+code,
+kbd,
+samp,
+pre {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
 pre {
     background: var(--chisel-neutral-200);
     border-left: 3px solid var(--chisel-primary);
@@ -309,11 +341,44 @@ select {
     }
 }
 
+input[type='search'] {
+    -webkit-appearance: textfield;
+    outline-offset: -2px;
+}
+
+::-webkit-input-placeholder {
+    color: inherit;
+    opacity: 0.54;
+}
+
+::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    font: inherit;
+}
+
+::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+}
+
+:-moz-focusring {
+    outline: 1px dotted ButtonText;
+}
+
+:-moz-ui-invalid {
+    box-shadow: none;
+}
+
 select {
     /* TODO: Find a way to use CSS variables for the down arrow */
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%23d1d5db" d="M0,0l6,8l6-8"/></svg>')
         center right no-repeat;
     padding-right: 3rem;
+    text-transform: none;
 
     &:focus {
         /* TODO: Find a way to use CSS variables for the down arrow */
@@ -328,6 +393,10 @@ select {
 
 textarea {
     min-height: 6.5rem;
+    margin: 0;
+    overflow: auto;
+    resize: vertical;
+    resize: block;
 }
 
 label,
@@ -353,10 +422,20 @@ input[type='radio'] {
     margin-left: 0.5rem;
 }
 
+/* Iframes
+ * ========================================================================== */
+iframe {
+    border-style: none;
+}
+
 /* Images
  * ========================================================================== */
 img {
     max-width: 100%;
+}
+
+svg:not([fill]) {
+    fill: currentColor;
 }
 
 /* Links
@@ -395,6 +474,12 @@ ul {
     list-style: circle inside;
 }
 
+/* Progress
+ * ========================================================================== */
+progress {
+    vertical-align: baseline;
+}
+
 /* Element Spacing
  * ========================================================================== */
 .button,
@@ -428,9 +513,11 @@ ul {
  * ========================================================================== */
 table {
     border-spacing: 0;
+    border-color: inherit;
     display: block;
     overflow-x: auto;
     text-align: left;
+    text-indent: 0;
     width: 100%;
 
     @media (--chisel-tablet) {
@@ -453,4 +540,56 @@ th {
     &:last-child {
         padding-right: 0;
     }
+}
+
+/* Dialogs
+ * ========================================================================== */
+dialog {
+    background-color: var(--chisel-neutral-50);
+    border: solid;
+    color: var(--chisel-neutral-900);
+    display: block;
+    height: -moz-fit-content;
+    height: -webkit-fit-content;
+    height: fit-content;
+    left: 0;
+    margin: auto;
+    padding: 1em;
+    position: absolute;
+    right: 0;
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+    width: fit-content;
+}
+
+dialog:not([open]) {
+    display: none;
+}
+
+summary {
+    display: list-item;
+}
+
+/* Accessibility
+ * ========================================================================== */
+[aria-busy='true'] {
+    cursor: progress;
+}
+
+[aria-controls] {
+    cursor: pointer;
+}
+
+[aria-disabled='true'],
+[disabled] {
+    cursor: not-allowed;
+}
+
+[aria-hidden='false'][hidden] {
+    display: initial;
+}
+
+[aria-hidden='false'][hidden]:not(:focus) {
+    clip: rect(0, 0, 0, 0);
+    position: absolute;
 }
