@@ -1,5 +1,3 @@
-<a align="center" href="https://github.com/Navillus-BV/chisel"><img width="100%" src="/assets/banner.svg" alt="Chisel - A minimalist CSS framework."></a>
-
 <div align="center">
   <a href="https://npmjs.org/package/chisel.css">
     <img src="https://badgen.now.sh/npm/v/chisel.css" alt="version" />
@@ -8,6 +6,8 @@
     <img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square" alt="code style: prettier">
   </a>
 </div>
+
+<a align="center" href="https://github.com/Navillus-BV/chisel"><img width="100%" src="/assets/banner.svg" alt="Chisel - A minimalist CSS framework."></a>
 
 > A minimalist CSS framework.
 
