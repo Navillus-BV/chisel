@@ -18,6 +18,38 @@
   --chisel-h4: 1.563rem;
   --chisel-h5: 1.25rem;
   --chisel-h6: 0.8rem;
+
+  &[data-chisel-theme="dark"] {
+    --chisel-primary: #86a8cb;
+    --chisel-neutral-50: #111827;
+    --chisel-neutral-200: #374151;
+    --chisel-neutral-300: #6b7280;
+    --chisel-neutral-500: #6b7280;
+    --chisel-neutral-700: #e5e7eb;
+    --chisel-neutral-900: #f9fafb;
+
+    & select:focus {
+      /* TODO: Find a way to use CSS variables for the down arrow */
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%2386a8cb" d="M0,0l6,8l6-8"/></svg>');
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    & {
+      --chisel-primary: #86a8cb;
+      --chisel-neutral-50: #111827;
+      --chisel-neutral-200: #374151;
+      --chisel-neutral-300: #6b7280;
+      --chisel-neutral-500: #6b7280;
+      --chisel-neutral-700: #e5e7eb;
+      --chisel-neutral-900: #f9fafb;
+    }
+
+    & select:focus {
+      /* TODO: Find a way to use CSS variables for the down arrow */
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%2386a8cb" d="M0,0l6,8l6-8"/></svg>');
+    }
+  }
 }
 
 /* Base
@@ -154,7 +186,7 @@ input[type="submit"] {
   &:focus,
   &:hover {
     background-color: var(--chisel-neutral-500);
-    border-color: var(--chisel-neutral-5`00);
+    border-color: var(--chisel-neutral-500);
     color: var(--chisel-neutral-50);
     outline: 0;
   }
@@ -264,6 +296,7 @@ select {
   -webkit-appearance: none;
   background-color: transparent;
   border: 1px solid var(--chisel-neutral-300);
+  color: inherit;
   border-radius: 0.4rem;
   box-shadow: none;
   box-sizing: inherit;
