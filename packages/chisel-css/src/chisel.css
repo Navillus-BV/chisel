@@ -211,7 +211,6 @@ input[type='submit'] {
         background-color: var(--chisel-neutral-500);
         border-color: var(--chisel-neutral-500);
         color: var(--chisel-neutral-50);
-        outline: 0;
     }
 
     &[disabled] {
@@ -337,7 +336,6 @@ select {
 
     &:focus {
         border-color: var(--chisel-primary);
-        outline: 0;
     }
 }
 
