@@ -8,6 +8,6 @@ module.exports = {
         require('postcss-custom-media')(),
         require('postcss-combine-media-query'),
         require('autoprefixer'),
-        prod && require('cssnano')()
-    ].filter(Boolean)
+        prod && require('cssnano')(),
+    ].filter(Boolean),
 }

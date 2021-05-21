@@ -4,52 +4,52 @@
 /* Chisel CSS Variables
  * ========================================================================== */
 :root {
-  --chisel-primary: #325476;
-  --chisel-neutral-50: #f9fafb;
-  --chisel-neutral-200: #e5e7eb;
-  --chisel-neutral-300: #d1d5db;
-  --chisel-neutral-500: #6b7280;
-  --chisel-neutral-700: #374151;
-  --chisel-neutral-900: #111827;
-
-  --chisel-h1: 3.052rem;
-  --chisel-h2: 2.441rem;
-  --chisel-h3: 1.953rem;
-  --chisel-h4: 1.563rem;
-  --chisel-h5: 1.25rem;
-  --chisel-h6: 0.8rem;
-
-  &[data-chisel-theme="dark"] {
-    --chisel-primary: #86a8cb;
-    --chisel-neutral-50: #111827;
-    --chisel-neutral-200: #374151;
-    --chisel-neutral-300: #6b7280;
+    --chisel-primary: #325476;
+    --chisel-neutral-50: #f9fafb;
+    --chisel-neutral-200: #e5e7eb;
+    --chisel-neutral-300: #d1d5db;
     --chisel-neutral-500: #6b7280;
-    --chisel-neutral-700: #e5e7eb;
-    --chisel-neutral-900: #f9fafb;
+    --chisel-neutral-700: #374151;
+    --chisel-neutral-900: #111827;
 
-    & select:focus {
-      /* TODO: Find a way to use CSS variables for the down arrow */
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%2386a8cb" d="M0,0l6,8l6-8"/></svg>');
-    }
-  }
+    --chisel-h1: 3.052rem;
+    --chisel-h2: 2.441rem;
+    --chisel-h3: 1.953rem;
+    --chisel-h4: 1.563rem;
+    --chisel-h5: 1.25rem;
+    --chisel-h6: 0.8rem;
 
-  @media (prefers-color-scheme: dark) {
-    & {
-      --chisel-primary: #86a8cb;
-      --chisel-neutral-50: #111827;
-      --chisel-neutral-200: #374151;
-      --chisel-neutral-300: #6b7280;
-      --chisel-neutral-500: #6b7280;
-      --chisel-neutral-700: #e5e7eb;
-      --chisel-neutral-900: #f9fafb;
+    &[data-chisel-theme='dark'] {
+        --chisel-primary: #86a8cb;
+        --chisel-neutral-50: #111827;
+        --chisel-neutral-200: #374151;
+        --chisel-neutral-300: #6b7280;
+        --chisel-neutral-500: #6b7280;
+        --chisel-neutral-700: #e5e7eb;
+        --chisel-neutral-900: #f9fafb;
+
+        & select:focus {
+            /* TODO: Find a way to use CSS variables for the down arrow */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%2386a8cb" d="M0,0l6,8l6-8"/></svg>');
+        }
     }
 
-    & select:focus {
-      /* TODO: Find a way to use CSS variables for the down arrow */
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%2386a8cb" d="M0,0l6,8l6-8"/></svg>');
+    @media (prefers-color-scheme: dark) {
+        & {
+            --chisel-primary: #86a8cb;
+            --chisel-neutral-50: #111827;
+            --chisel-neutral-200: #374151;
+            --chisel-neutral-300: #6b7280;
+            --chisel-neutral-500: #6b7280;
+            --chisel-neutral-700: #e5e7eb;
+            --chisel-neutral-900: #f9fafb;
+        }
+
+        & select:focus {
+            /* TODO: Find a way to use CSS variables for the down arrow */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%2386a8cb" d="M0,0l6,8l6-8"/></svg>');
+        }
     }
-  }
 }
 
 /* Base
@@ -57,50 +57,49 @@
 *,
 *:after,
 *:before {
-  box-sizing: inherit;
+    box-sizing: inherit;
 }
 
 html {
-  box-sizing: border-box;
-  font-size: 16px;
+    box-sizing: border-box;
+    font-size: 16px;
 }
 
 body {
-  background: var(--chisel-neutral-50);
-  color: var(--chisel-neutral-900);
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-weight: 400;
-  line-height: 1.75;
+    background: var(--chisel-neutral-50);
+    color: var(--chisel-neutral-900);
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+        Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    font-weight: 400;
+    line-height: 1.75;
 }
 
 /* Reduced Motion
  * ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  ::before,
-  ::after {
-    animation-delay: -1ms !important;
-    animation-duration: 1ms !important;
-    animation-iteration-count: 1 !important;
-    background-attachment: initial !important;
-    scroll-behavior: auto !important;
-    transition-delay: 0s !important;
-    transition-duration: 0s !important;
-  }
+    *,
+    ::before,
+    ::after {
+        animation-delay: -1ms !important;
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        background-attachment: initial !important;
+        scroll-behavior: auto !important;
+        transition-delay: 0s !important;
+        transition-duration: 0s !important;
+    }
 }
 
 /* Typography
  * ========================================================================== */
 b,
 strong {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 p {
-  margin-top: 0;
-  margin-bottom: 1em;
+    margin-top: 0;
+    margin-bottom: 1em;
 }
 
 h1,
@@ -109,266 +108,266 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 3rem 0 1.38rem;
-  font-weight: 400;
-  line-height: 1.3;
+    margin: 3rem 0 1.38rem;
+    font-weight: 400;
+    line-height: 1.3;
 }
 
 h1,
 .h1 {
-  margin-top: 0;
-  font-size: var(--chisel-h1);
+    margin-top: 0;
+    font-size: var(--chisel-h1);
 }
 
 h2,
 .h2 {
-  font-size: var(--chisel-h2);
+    font-size: var(--chisel-h2);
 }
 
 h3,
 .h3 {
-  font-size: var(--chisel-h3);
+    font-size: var(--chisel-h3);
 }
 
 h4,
 .h4 {
-  font-size: var(--chisel-h4);
+    font-size: var(--chisel-h4);
 }
 
 h5,
 .h5 {
-  font-size: var(--chisel-h5);
+    font-size: var(--chisel-h5);
 }
 
 h6,
 small,
 .h6 {
-  font-size: var(--chisel-h6);
-  letter-spacing: 0.05em;
+    font-size: var(--chisel-h6);
+    letter-spacing: 0.05em;
 }
 
 /* Blockquotes
  * ========================================================================== */
 blockquote {
-  border-left: 3px solid var(--chisel-neutral-300);
-  margin-left: 0;
-  margin-right: 0;
-  padding: 1em 1.5em;
+    border-left: 3px solid var(--chisel-neutral-300);
+    margin-left: 0;
+    margin-right: 0;
+    padding: 1em 1.5em;
 
-  & *:last-child {
-    margin-bottom: 0;
-  }
+    & *:last-child {
+        margin-bottom: 0;
+    }
 }
 
 /* Buttons
  * ========================================================================== */
 .button,
 button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-  background-color: var(--chisel-primary);
-  border: 2px solid var(--chisel-primary);
-  border-radius: 0.4rem;
-  color: var(--chisel-neutral-50);
-  cursor: pointer;
-  display: inline-block;
-  font-weight: 700;
-  height: 3rem;
-  line-height: 3rem;
-  letter-spacing: 0.05em;
-  padding: 0 3rem;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  white-space: nowrap;
-
-  &:focus,
-  &:hover {
-    background-color: var(--chisel-neutral-500);
-    border-color: var(--chisel-neutral-500);
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+    background-color: var(--chisel-primary);
+    border: 2px solid var(--chisel-primary);
+    border-radius: 0.4rem;
     color: var(--chisel-neutral-50);
-    outline: 0;
-  }
-
-  &[disabled] {
-    cursor: default;
-    opacity: 0.5;
-
-    &:focus,
-    &:hover {
-      background-color: var(--chisel-primary);
-      border-color: var(--chisel-primary);
-    }
-  }
-
-  &.button-outline {
-    background-color: transparent;
-    color: var(--chisel-primary);
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 700;
+    height: 3rem;
+    line-height: 3rem;
+    letter-spacing: 0.05em;
+    padding: 0 3rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
 
     &:focus,
     &:hover {
-      background-color: transparent;
-      border-color: var(--chisel-neutral-500);
-      color: var(--chisel-neutral-500);
+        background-color: var(--chisel-neutral-500);
+        border-color: var(--chisel-neutral-500);
+        color: var(--chisel-neutral-50);
+        outline: 0;
     }
 
     &[disabled] {
-      &:focus,
-      &:hover {
-        border-color: inherit;
+        cursor: default;
+        opacity: 0.5;
+
+        &:focus,
+        &:hover {
+            background-color: var(--chisel-primary);
+            border-color: var(--chisel-primary);
+        }
+    }
+
+    &.button-outline {
+        background-color: transparent;
         color: var(--chisel-primary);
-      }
+
+        &:focus,
+        &:hover {
+            background-color: transparent;
+            border-color: var(--chisel-neutral-500);
+            color: var(--chisel-neutral-500);
+        }
+
+        &[disabled] {
+            &:focus,
+            &:hover {
+                border-color: inherit;
+                color: var(--chisel-primary);
+            }
+        }
     }
-  }
 
-  &.button-clear {
-    background-color: transparent;
-    border-color: transparent;
-    color: var(--chisel-primary);
-
-    &:focus,
-    &:hover {
-      background-color: transparent;
-      border-color: transparent;
-      color: var(--chisel-neutral-500);
-    }
-
-    &[disabled] {
-      &:focus,
-      &:hover {
+    &.button-clear {
+        background-color: transparent;
+        border-color: transparent;
         color: var(--chisel-primary);
-      }
+
+        &:focus,
+        &:hover {
+            background-color: transparent;
+            border-color: transparent;
+            color: var(--chisel-neutral-500);
+        }
+
+        &[disabled] {
+            &:focus,
+            &:hover {
+                color: var(--chisel-primary);
+            }
+        }
     }
-  }
 }
 
 /* Code
  * ========================================================================== */
 code {
-  background: var(--chisel-neutral-200);
-  border-radius: 0.4rem;
-  margin: 0 0.2rem;
-  padding: 0.2rem 0.5rem;
-  white-space: no-wrap;
+    background: var(--chisel-neutral-200);
+    border-radius: 0.4rem;
+    margin: 0 0.2rem;
+    padding: 0.2rem 0.5rem;
+    white-space: no-wrap;
 }
 
 pre {
-  background: var(--chisel-neutral-200);
-  border-left: 3px solid var(--chisel-primary);
-  overflow-y: hidden;
-  white-space: normal;
+    background: var(--chisel-neutral-200);
+    border-left: 3px solid var(--chisel-primary);
+    overflow-y: hidden;
+    white-space: normal;
 
-  & > code {
-    border-radius: 0;
-    display: block;
-    padding: 1rem 1.5rem;
-    white-space: pre;
-  }
+    & > code {
+        border-radius: 0;
+        display: block;
+        padding: 1rem 1.5rem;
+        white-space: pre;
+    }
 }
 
 /* Dividers
  * ========================================================================== */
 hr {
-  border: 0;
-  border-top: 1px solid var(--chisel-neutral-300);
-  margin: 3rem 0;
+    border: 0;
+    border-top: 1px solid var(--chisel-neutral-300);
+    margin: 3rem 0;
 }
 
 /* Forms
  * ========================================================================== */
-input[type="color"],
-input[type="date"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="email"],
-input[type="month"],
-input[type="number"],
-input[type="password"],
-input[type="search"],
-input[type="tel"],
-input[type="text"],
-input[type="url"],
-input[type="week"],
+input[type='color'],
+input[type='date'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='email'],
+input[type='month'],
+input[type='number'],
+input[type='password'],
+input[type='search'],
+input[type='tel'],
+input[type='text'],
+input[type='url'],
+input[type='week'],
 input:not([type]),
 textarea,
 select {
-  -webkit-appearance: none;
-  background-color: transparent;
-  border: 1px solid var(--chisel-neutral-300);
-  color: inherit;
-  border-radius: 0.4rem;
-  box-shadow: none;
-  box-sizing: inherit;
-  height: 3rem;
-  padding: 0.6rem 1rem 0.7rem;
-  width: 100%;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 1px solid var(--chisel-neutral-300);
+    color: inherit;
+    border-radius: 0.4rem;
+    box-shadow: none;
+    box-sizing: inherit;
+    height: 3rem;
+    padding: 0.6rem 1rem 0.7rem;
+    width: 100%;
 
-  &:focus {
-    border-color: var(--chisel-primary);
-    outline: 0;
-  }
+    &:focus {
+        border-color: var(--chisel-primary);
+        outline: 0;
+    }
 }
 
 select {
-  /* TODO: Find a way to use CSS variables for the down arrow */
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%23d1d5db" d="M0,0l6,8l6-8"/></svg>')
-    center right no-repeat;
-  padding-right: 3rem;
-
-  &:focus {
     /* TODO: Find a way to use CSS variables for the down arrow */
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%23325476" d="M0,0l6,8l6-8"/></svg>');
-  }
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%23d1d5db" d="M0,0l6,8l6-8"/></svg>')
+        center right no-repeat;
+    padding-right: 3rem;
 
-  &[multiple] {
-    background: none;
-    height: auto;
-  }
+    &:focus {
+        /* TODO: Find a way to use CSS variables for the down arrow */
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%23325476" d="M0,0l6,8l6-8"/></svg>');
+    }
+
+    &[multiple] {
+        background: none;
+        height: auto;
+    }
 }
 
 textarea {
-  min-height: 6.5rem;
+    min-height: 6.5rem;
 }
 
 label,
 legend {
-  display: block;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
 }
 
 fieldset {
-  border-width: 0;
-  padding: 0;
+    border-width: 0;
+    padding: 0;
 }
 
-input[type="checkbox"],
-input[type="radio"] {
-  display: inline;
+input[type='checkbox'],
+input[type='radio'] {
+    display: inline;
 }
 
 .label-inline {
-  display: inline-block;
-  font-weight: normal;
-  margin-left: 0.5rem;
+    display: inline-block;
+    font-weight: normal;
+    margin-left: 0.5rem;
 }
 
 /* Images
  * ========================================================================== */
 img {
-  max-width: 100%;
+    max-width: 100%;
 }
 
 /* Links
  * ========================================================================== */
 a {
-  color: var(--chisel-primary);
+    color: var(--chisel-primary);
 
-  &:focus,
-  &:hover {
-    color: var(--chisel-neutral-700);
-  }
+    &:focus,
+    &:hover {
+        color: var(--chisel-neutral-700);
+    }
 }
 
 /* Lists
@@ -376,24 +375,24 @@ a {
 dl,
 ol,
 ul {
-  list-style: none;
-  margin-top: 0;
-  padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+    padding-left: 0;
 
-  dl,
-  ol,
-  ul {
-    font-size: 90%;
-    margin: 1.5rem 0 1.5rem 3rem;
-  }
+    dl,
+    ol,
+    ul {
+        font-size: 90%;
+        margin: 1.5rem 0 1.5rem 3rem;
+    }
 }
 
 ol {
-  list-style: decimal inside;
+    list-style: decimal inside;
 }
 
 ul {
-  list-style: circle inside;
+    list-style: circle inside;
 }
 
 /* Element Spacing
@@ -403,14 +402,14 @@ button,
 dd,
 dt,
 li {
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 fieldset,
 input,
 select,
 textarea {
-  margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 blockquote,
@@ -422,36 +421,36 @@ p,
 pre,
 table,
 ul {
-  margin-bottom: 2.5rem;
+    margin-bottom: 2.5rem;
 }
 
 /* Tables
  * ========================================================================== */
 table {
-  border-spacing: 0;
-  display: block;
-  overflow-x: auto;
-  text-align: left;
-  width: 100%;
+    border-spacing: 0;
+    display: block;
+    overflow-x: auto;
+    text-align: left;
+    width: 100%;
 
-  @media (--chisel-tablet) {
-    & {
-      display: table;
-      overflow-x: initial;
+    @media (--chisel-tablet) {
+        & {
+            display: table;
+            overflow-x: initial;
+        }
     }
-  }
 }
 
 td,
 th {
-  border-bottom: 1px solid var(--chisel-neutral-200);
-  padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid var(--chisel-neutral-200);
+    padding: 1.2rem 1.5rem;
 
-  &:first-child {
-    padding-left: 0;
-  }
+    &:first-child {
+        padding-left: 0;
+    }
 
-  &:last-child {
-    padding-right: 0;
-  }
+    &:last-child {
+        padding-right: 0;
+    }
 }
