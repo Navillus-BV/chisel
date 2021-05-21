@@ -21,6 +21,7 @@ Yes, but hopefully not for long! The goal of `chisel.css` is to provide the out 
 
 ## What it is
 
+-   an (opinionated) browser reset, similar to [sanitize.css](https://github.com/csstools/sanitize.css)
 -   a cross-browser visual reset, because most browsers ignore default styling
 -   concerned exclusively with HTML elements, not JS libraries or custom elements
 -   built on the latest browser features like **CSS variables**
@@ -30,8 +31,6 @@ Yes, but hopefully not for long! The goal of `chisel.css` is to provide the out 
 
 -   a full component library...sorry, no card components or toggle switches here
 -   a layout engine...`flexbox` and `grid` are your friends these days
--   a browser reset, though we do encourage using your reset of choice along site `chisel.css`
-    -   Not sure which reset to use? We prefer [sanitize.css](https://github.com/csstools/sanitize.css), but there are plenty of excellent options out there
 
 ## Download
 
