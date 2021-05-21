@@ -4,6 +4,9 @@
   <a href="https://npmjs.org/package/chisel.css">
     <img src="https://badgen.now.sh/npm/v/chisel.css" alt="version" />
   </a>
+  <a href="https://github.com/prettier/prettier">
+    <img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square" alt="code style: prettier">
+  </a>
 </div>
 
 > A minimalist CSS framework.
