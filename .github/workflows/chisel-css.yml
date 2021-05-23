@@ -1,39 +1,39 @@
 name: 'chisel.css'
 
 on:
-    push:
-        paths:
-            - 'packages/chisel-css/**'
-        branches:
-            - main
-    pull_request:
-        paths:
-            - 'packages/chisel-css/**'
-        branches:
-            - main
+  push:
+    paths:
+      - 'packages/chisel-css/**'
+    branches:
+      - main
+  pull_request:
+    paths:
+      - 'packages/chisel-css/**'
+    branches:
+      - main
 
 jobs:
-    test:
-        runs-on: ubuntu-20.04
-        strategy:
-            matrix:
-                nodejs: [15]
-        steps:
-            - uses: actions/checkout@v2
-            - name: Use Node.js ${{ matrix.node-version }}
-                uses: actions/setup-node@v2
-                with:
-                    node-version: ${{ matrix.node-version }}
-            - name: Cache .pnpm-store
-                uses: actions/cache@v1
-                with:
-                    path: ~/.pnpm-store
-                    key: ${{ runner.os }}-node${{ matrix.node-version }}-${{ hashFiles('**/pnpm-lock.yaml') }}
-            - name: Install pnpm
-                run: |
-                    curl -f https://get.pnpm.io/v5.js | node - add --global pnpm@5
-                    pnpm install
-            - name: Lint & Build
-                run: |
-                    pnpm lint
-                    pnpm build
+  test:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        nodejs: [15]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Cache .pnpm-store
+      uses: actions/cache@v1
+      with:
+        path: ~/.pnpm-store
+        key: ${{ runner.os }}-node${{ matrix.node-version }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+    - name: Install pnpm
+      run: |
+        curl -f https://get.pnpm.io/v5.js | node - add --global pnpm@5
+        pnpm install
+    - name: Lint & Build
+      run: |
+        pnpm lint
+        pnpm build
