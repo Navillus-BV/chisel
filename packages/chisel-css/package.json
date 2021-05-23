@@ -9,7 +9,7 @@
         "example.html"
     ],
     "scripts": {
-        "prebuild": "[[ $CI = true ]] && npx pnpm install --store=node_modules/.pnpm-store || echo skipping pnpm install",
+        "prebuild": "test \"$CI\" = true && npx pnpm install --store=node_modules/.pnpm-store || echo skipping pnpm install",
         "build": "run-p build:*",
         "build:dev": "NODE_ENV=development postcss src/chisel.css -o dist/chisel.css",
         "build:prod": "NODE_ENV=production postcss src/chisel.css -o dist/chisel.min.css",
