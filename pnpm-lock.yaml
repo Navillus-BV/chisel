@@ -4,8 +4,10 @@ importers:
 
   .:
     specifiers:
+      pnpm: ^6.4.0
       prettier: ^2.3.0
     devDependencies:
+      pnpm: 6.4.0
       prettier: 2.3.0
 
   packages/chisel-css:
@@ -37,12 +39,10 @@ importers:
       '@11ty/eleventy': ^0.12.1
       '@fontsource/poppins': ^4.3.0
       chisel.css: workspace:^0.1.1
-      pnpm: ^6.4.0
     devDependencies:
       '@11ty/eleventy': 0.12.1
       '@fontsource/poppins': 4.3.0
       chisel.css: link:../chisel-css
-      pnpm: 6.4.0
 
 packages:
 

@@ -36,6 +36,7 @@
     },
     "homepage": "https://github.com/Navillus-BV/chisel#readme",
     "devDependencies": {
+        "pnpm": "^6.4.0",
         "prettier": "^2.3.0"
     }
 }
