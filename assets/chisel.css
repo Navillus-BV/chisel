@@ -165,6 +165,7 @@ body {
     max-width: 90rem;
     max-width: var(--chisel-container-max-w);
     margin: 0 auto;
+    padding: 0 clamp(1rem, 3vw, 3rem)
 }
 
 /* Reduced Motion
@@ -924,6 +925,12 @@ summary {
         :root select:focus {
             /* TODO: Find a way to use CSS variables for the down arrow */
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%2386a8cb" d="M0,0l6,8l6-8"/></svg>');
+        }
+}
+
+@media (min-width: 112em) {
+        .container {
+            padding: 0;
         }
 }
 
