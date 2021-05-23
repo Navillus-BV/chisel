@@ -1,4 +1,6 @@
 [build]
-  base = ""
   publish = "_site"
-  command = "npx @11ty/eleventy"
+  command = "pnpm build"
+  ignore = "git diff --quiet HEAD^ HEAD packages/chisel-site/"
+[build.environment]
+  NPM_FLAGS="--prefix=/"

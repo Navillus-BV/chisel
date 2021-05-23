@@ -37,10 +37,12 @@ importers:
       '@11ty/eleventy': ^0.12.1
       '@fontsource/poppins': ^4.3.0
       chisel.css: workspace:^0.1.1
+      pnpm: ^6.4.0
     devDependencies:
       '@11ty/eleventy': 0.12.1
       '@fontsource/poppins': 4.3.0
       chisel.css: link:../chisel-css
+      pnpm: 6.4.0
 
 packages:
 
@@ -2303,6 +2305,12 @@ packages:
     resolution: {integrity: sha512-gQR3WpIgNIKwBMVLkpMUeR3e1/E1y42bqDQZfql+kDeXd8COYfM8PQA4X6y7a8u9Ua9FHmsrrmirW2vHs45hWg==}
     dependencies:
       semver-compare: 1.0.0
+    dev: true
+
+  /pnpm/6.4.0:
+    resolution: {integrity: sha512-ws4OArFXDfjOrj6gk4Ded+CkbW6pRKkscnOEONetX2MV+m5fwxTIAVw2Fic4CNTKZbN4D182oPQyoMd5uGzrjw==}
+    engines: {node: '>=12.17'}
+    hasBin: true
     dev: true
 
   /portscanner/2.1.1:
