@@ -16,6 +16,7 @@ on:
 
 jobs:
   test:
+    name: Node.js v${{ matrix.nodejs }} (${{ matrix.os }})
     runs-on: ubuntu-20.04
     strategy:
       matrix:
@@ -33,7 +34,7 @@ jobs:
         key: ${{ runner.os }}-node${{ matrix.node-version }}-${{ hashFiles('**/pnpm-lock.yaml') }}
     - name: Install pnpm
       run: |
-        curl -f https://get.pnpm.io/v5.js | node - add --global pnpm@5
+        sudo npm install -g pnpm
         pnpm install
     - name: Lint & Build
       run: |
