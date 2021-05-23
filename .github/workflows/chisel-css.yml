@@ -4,11 +4,13 @@ on:
   push:
     paths:
       - 'packages/chisel-css/**'
+      - '.github/workflows/**'
     branches:
       - main
   pull_request:
     paths:
       - 'packages/chisel-css/**'
+      - '.github/workflows/**'
     branches:
       - main
 
