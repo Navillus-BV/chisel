@@ -1,0 +1,40 @@
+{
+  "name": "chisel-site",
+  "version": "0.1.0",
+  "description": "A minimalist CSS framework.",
+  "main": ".eleventy.js",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve",
+    "debug": "DEBUG=* eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Navillus-BV/chisel.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "css",
+    "css3",
+    "flexbox",
+    "html",
+    "html5",
+    "responsive",
+    "mobile",
+    "mobile-first",
+    "postcss"
+  ],
+  "author": {
+    "name": "Tony Sullivan",
+    "email": "tony@navillus.nl",
+    "url": "https://navillus.nl"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Navillus-BV/chisel/issues"
+  },
+  "homepage": "https://github.com/Navillus-BV/chisel#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1"
+  }
+}

@@ -12,6 +12,9 @@
         "build": "run-p build:*",
         "build:dev": "NODE_ENV=development postcss src/chisel.css -o dist/chisel.css",
         "build:prod": "NODE_ENV=production postcss src/chisel.css -o dist/chisel.min.css",
+        "start": "run-p start:*",
+        "start:dev": "NODE_ENV=development postcss src/chisel.css -o dist/chisel.css -w",
+        "start:prod": "NODE_ENV=production postcss src/chisel.css -o dist/chisel.min.css -w",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
