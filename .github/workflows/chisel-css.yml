@@ -4,18 +4,20 @@ on:
   push:
     paths:
       - 'packages/chisel-css/**'
+      - 'packages/chisel-site/**'
       - '.github/workflows/**'
     branches:
       - main
   pull_request:
     paths:
       - 'packages/chisel-css/**'
+      - 'packages/chisel-site/**'
       - '.github/workflows/**'
     branches:
       - main
 
 jobs:
-  test:
+  build-and-deploy:
     name: Node.js v${{ matrix.nodejs }} (${{ matrix.os }})
     runs-on: ubuntu-20.04
     strategy:
