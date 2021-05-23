@@ -409,6 +409,21 @@ pre {
 }
 
 /**
+ * 1. Apply background color neutral-200 (theme).
+ * 2. Add rounded corners (theme).
+ * 3. Add default margin and padding (theme).
+ * 4. Don't wrap inline code blocks (use pre > wrap for multiline blocks)
+ */
+
+code {
+    background: var(--chisel-neutral-200); /* 1 */
+    border-radius: 0.4rem; /* 2 */
+    margin: 0 0.2rem; /* 3 */
+    padding: 0.2rem 0.5rem; /* 3 */
+    white-space: no-wrap; /* 4 */
+}
+
+/**
  * 1. Style pre blocks with neutral-200 background (theme).
  * 2. Use primary color for left border (theme).
  * 3. Disable scrolling in pre (opinionated).
