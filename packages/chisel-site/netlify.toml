@@ -3,4 +3,4 @@
   command = "pnpm build"
   ignore = "git diff --quiet HEAD^ HEAD packages/chisel-site/"
 [build.environment]
-  NPM_FLAGS="--prefix=/"
+  NPM_FLAGS="--prefix=//dev/null"
