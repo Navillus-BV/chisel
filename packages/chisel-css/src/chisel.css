@@ -1,4 +1,4 @@
-/*! chisel v0.1.0 | MIT License | https://github.com/Navillus-BV/chisel */
+/*! chisel v0.1.1 | MIT License | https://github.com/Navillus-BV/chisel */
 
 /* Chisel Variables
  * ========================================================================== */
@@ -406,6 +406,21 @@ samp,
 pre {
     font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace; /* 1 */
     font-size: 1em; /* 2 */
+}
+
+/**
+ * 1. Apply background color neutral-200 (theme).
+ * 2. Add rounded corners (theme).
+ * 3. Add default margin and padding (theme).
+ * 4. Don't wrap inline code blocks (use pre > wrap for multiline blocks)
+ */
+
+code {
+    background: var(--chisel-neutral-200); /* 1 */
+    border-radius: 0.4rem; /* 2 */
+    margin: 0 0.2rem; /* 3 */
+    padding: 0.2rem 0.5rem; /* 3 */
+    white-space: no-wrap; /* 4 */
 }
 
 /**

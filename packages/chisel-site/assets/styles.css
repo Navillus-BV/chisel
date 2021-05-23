@@ -1,0 +1,23 @@
+body {
+    font-family: Poppins, sans-serif;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    position: sticky;
+}
+
+.header__brand {
+    height: 2rem;
+}
