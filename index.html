@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Chisel - A minimalist CSS framework</title>
+        <meta name="Description" content="A minimalist CSS framework" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+        <link rel="mask-icon" href="/assets/favicon.svg" color="#ff8a01" />
+
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+        <link rel="stylesheet" type="text/css" href="/fonts/poppins/400.css" />
+        <link rel="stylesheet" type="text/css" href="/assets/chisel.min.css" />
+        <link rel="stylesheet" type="text/css" href="/assets/styles.css" />
+    </head>
+    <body>
+        <header class="header">
+            <div class="container">
+                <a href="/" alt="Back to Home">
+                    <img src="/assets/logo-compact.svg" aria-hidden class="header__brand" />
+                </a>
+            </div>
+        </header>
+
+        <div class="container">
+<div class="hero">
+    <img src="/assets/banner.svg" alt="Chisel - A minimalist CSS framework." />
+</div>
+
+<h1>Chisel</h1>
+<blockquote>
+<p>A minimalist CSS framework.</p>
+</blockquote>
+<h2>...Another CSS framework?</h2>
+<p>Yes, but hopefully not for long! The goal of <code>chisel.css</code> is to provide the out of the box experience that HTML elements should have been given. Our measure of success with <code>chisel</code> is to become whittled down to nothing as browser vendors throw some extra attention behind elements' default styles.</p>
+<h2>Getting Started</h2>
+<h3>Download</h3>
+<p>Install with NPM (or yarn, or pnpm)</p>
+<pre><code class="language-sh">npm i -S chisel.css
+</code></pre>
+<p>or from CDN</p>
+<pre><code class="language-html">&lt;link href=&quot;https://unpkg.com/chisel.css&quot; rel=&quot;stylesheet&quot; /&gt;
+</code></pre>
+<h3>CSS Variables</h3>
+<p><code>chisel.css</code> uses CSS variables for all our colors making it dead simple to change themes, add your own dark mode, etc.</p>
+<pre><code class="language-css">:root {
+    --chisel-primary: #325476;
+    --chisel-neutral-50: #f9fafb;
+    --chisel-neutral-200: #e5e7eb;
+    --chisel-neutral-300: #d1d5db;
+    --chisel-neutral-500: #6b7280;
+    --chisel-neutral-700: #374151;
+    --chisel-neutral-900: #111827;
+}
+</code></pre>
+<p><code>--chisel-primary</code> is the primary brand color used, by default it is the same blue color as <code>chisel.css</code>'s logo. The <code>--chisel-neutral</code> colors are shades of gray used out of the box for backgrounds, text color, borders, etc.</p>
+<p>Because these are native CSS variables, you can override them globally on your page or scope color changes for particular sections of your site.</p>
+<h3>Typography</h3>
+<p>Proper type scaling can make all the difference in a design. <code>chisel.css</code> defaults headers to scale based on on the Major Third type scale, see <a href="https://type-scale.com/">type-scale.com</a> for more details.</p>
+<p>:rotating_light: Before the Github issues start piling up...yes we purposely chose to go with <code>h1, h2, h3, h4, h5, h6</code> for naming both the CSS variables and helper classes for type scaling. If that rubs you the wrong way, first consider how much easier to understand <code>class=&quot;h1&quot;</code> is compared to <code>class=&quot;text-4xl&quot;</code>.</p>
+<h4>Typography CSS Variables</h4>
+<p>Type scaling is also exposed with CSS Variables. Do you prefer the larger range of header sizes with the Perfect Fourth scale? No problem, override these variables in your CSS and you're all set.</p>
+<pre><code class="language-css">:root {
+    --chisel-h1: 3.052rem;
+    --chisel-h2: 2.441rem;
+    --chisel-h3: 1.953rem;
+    --chisel-h4: 1.563rem;
+    --chisel-h5: 1.25rem;
+    --chisel-h6: 0.8rem;
+}
+</code></pre>
+<h4>Typography <code>font-size</code> Classes</h4>
+<p>DOM heirarchy is important for both SEO and accessibility. Sometimes you just need a visually smaller header before a visually larger one - <code>chisel.css</code> has you covered.</p>
+<pre><code class="language-css">.h1 {
+    font-size: var(--chisel-h1);
+}
+.h2 {
+    font-size: var(--chisel-h2);
+}
+.h3 {
+    font-size: var(--chisel-h3);
+}
+.h4 {
+    font-size: var(--chisel-h4);
+}
+.h5 {
+    font-size: var(--chisel-h5);
+}
+.h6 {
+    font-size: var(--chisel-h6);
+}
+</code></pre>
+<p>Add the <code>h4</code> class to your <code>&lt;h1&gt;</code> for the best of both worlds. Symantically your <code>&lt;h1&gt;</code> comes before the subheaders while visually the other headers are emphasized.</p>
+
+</div>
+        <script src="/assets/script.js"></script>
+    </body>
+</html>
