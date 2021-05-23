@@ -35,8 +35,12 @@ importers:
   packages/chisel-site:
     specifiers:
       '@11ty/eleventy': ^0.12.1
+      '@fontsource/poppins': ^4.3.0
+      chisel.css: workspace:^0.1.1
     devDependencies:
       '@11ty/eleventy': 0.12.1
+      '@fontsource/poppins': 4.3.0
+      chisel.css: link:../chisel-css
 
 packages:
 
@@ -116,6 +120,10 @@ packages:
     dependencies:
       '@babel/helper-validator-identifier': 7.14.0
       to-fast-properties: 2.0.0
+    dev: true
+
+  /@fontsource/poppins/4.3.0:
+    resolution: {integrity: sha512-SSZOiqlEVH6KjgzOaDIi6r6JhvHK2Cht+XwkALD/KEPzf10QjHVszEamVjr71eSfB8xweabiP8u5/gnGEkIEsw==}
     dev: true
 
   /@nodelib/fs.scandir/2.1.4:

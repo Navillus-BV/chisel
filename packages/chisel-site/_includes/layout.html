@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>{{ title }}</title>
-    <meta name="Description" content="{{ description }}" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" type="text/css" href="/assets/styles.css" />
-  </head>
-  <body>
-    <div class="content">{{ content }}</div>
-    <script src="/assets/script.js"></script>
-  </body>
+    <head>
+        <title>{{ title }}</title>
+        <meta name="Description" content="{{ description }}" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+        <link rel="mask-icon" href="/assets/favicon.svg" color="#ff8a01" />
+
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+        <link rel="stylesheet" type="text/css" href="/fonts/poppins/400.css" />
+        <link rel="stylesheet" type="text/css" href="/assets/chisel.min.css" />
+        <link rel="stylesheet" type="text/css" href="/assets/styles.css" />
+    </head>
+    <body>
+        <header class="header">
+            <div class="container">
+                <a href="/" alt="Back to Home">
+                    <img src="/assets/logo-compact.svg" aria-hidden class="header__brand" />
+                </a>
+            </div>
+        </header>
+
+        <div class="container">{{ content }}</div>
+        <script src="/assets/script.js"></script>
+    </body>
 </html>

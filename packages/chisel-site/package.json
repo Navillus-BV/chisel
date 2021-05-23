@@ -35,6 +35,8 @@
   },
   "homepage": "https://github.com/Navillus-BV/chisel#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^0.12.1"
+    "@11ty/eleventy": "^0.12.1",
+    "@fontsource/poppins": "^4.3.0",
+    "chisel.css": "workspace:^0.1.1"
   }
 }
