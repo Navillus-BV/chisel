@@ -7,59 +7,59 @@
 @custom-media --chisel-desktop-xl (min-width: 112em);
 
 :root {
-    /* Color variables */
-    --chisel-primary: #325476;
-    --chisel-neutral-50: #f9fafb;
-    --chisel-neutral-200: #e5e7eb;
-    --chisel-neutral-300: #d1d5db;
+  /* Color variables */
+  --chisel-primary: #325476;
+  --chisel-neutral-50: #f9fafb;
+  --chisel-neutral-200: #e5e7eb;
+  --chisel-neutral-300: #d1d5db;
+  --chisel-neutral-500: #6b7280;
+  --chisel-neutral-700: #374151;
+  --chisel-neutral-900: #111827;
+
+  /* font-size variables */
+  --chisel-h1: 3.052rem;
+  --chisel-h2: 2.441rem;
+  --chisel-h3: 1.953rem;
+  --chisel-h4: 1.563rem;
+  --chisel-h5: 1.25rem;
+  --chisel-h6: 0.8rem;
+
+  /* container variables */
+  --chisel-container-max-w: 90rem;
+
+  /* dark theme via HTML dataset */
+  &[data-chisel-theme='dark'] {
+    --chisel-primary: #86a8cb;
+    --chisel-neutral-50: #111827;
+    --chisel-neutral-200: #374151;
+    --chisel-neutral-300: #6b7280;
     --chisel-neutral-500: #6b7280;
-    --chisel-neutral-700: #374151;
-    --chisel-neutral-900: #111827;
+    --chisel-neutral-700: #e5e7eb;
+    --chisel-neutral-900: #f9fafb;
 
-    /* font-size variables */
-    --chisel-h1: 3.052rem;
-    --chisel-h2: 2.441rem;
-    --chisel-h3: 1.953rem;
-    --chisel-h4: 1.563rem;
-    --chisel-h5: 1.25rem;
-    --chisel-h6: 0.8rem;
+    & select:focus {
+      /* TODO: Find a way to use CSS variables for the down arrow */
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%2386a8cb" d="M0,0l6,8l6-8"/></svg>');
+    }
+  }
 
-    /* container variables */
-    --chisel-container-max-w: 90rem;
-
-    /* dark theme via HTML dataset */
-    &[data-chisel-theme='dark'] {
-        --chisel-primary: #86a8cb;
-        --chisel-neutral-50: #111827;
-        --chisel-neutral-200: #374151;
-        --chisel-neutral-300: #6b7280;
-        --chisel-neutral-500: #6b7280;
-        --chisel-neutral-700: #e5e7eb;
-        --chisel-neutral-900: #f9fafb;
-
-        & select:focus {
-            /* TODO: Find a way to use CSS variables for the down arrow */
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%2386a8cb" d="M0,0l6,8l6-8"/></svg>');
-        }
+  /* dark theme via native prefers-color-scheme */
+  @media (prefers-color-scheme: dark) {
+    & {
+      --chisel-primary: #86a8cb;
+      --chisel-neutral-50: #111827;
+      --chisel-neutral-200: #374151;
+      --chisel-neutral-300: #6b7280;
+      --chisel-neutral-500: #6b7280;
+      --chisel-neutral-700: #e5e7eb;
+      --chisel-neutral-900: #f9fafb;
     }
 
-    /* dark theme via native prefers-color-scheme */
-    @media (prefers-color-scheme: dark) {
-        & {
-            --chisel-primary: #86a8cb;
-            --chisel-neutral-50: #111827;
-            --chisel-neutral-200: #374151;
-            --chisel-neutral-300: #6b7280;
-            --chisel-neutral-500: #6b7280;
-            --chisel-neutral-700: #e5e7eb;
-            --chisel-neutral-900: #f9fafb;
-        }
-
-        & select:focus {
-            /* TODO: Find a way to use CSS variables for the down arrow */
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%2386a8cb" d="M0,0l6,8l6-8"/></svg>');
-        }
+    & select:focus {
+      /* TODO: Find a way to use CSS variables for the down arrow */
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%2386a8cb" d="M0,0l6,8l6-8"/></svg>');
     }
+  }
 }
 
 /* Accessibility
@@ -70,7 +70,7 @@
  */
 
 [aria-busy='true'] {
-    cursor: progress;
+  cursor: progress;
 }
 
 /**
@@ -78,7 +78,7 @@
  */
 
 [aria-controls] {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /**
@@ -87,7 +87,7 @@
 
 [aria-disabled='true'],
 [disabled] {
-    cursor: not-allowed;
+  cursor: not-allowed;
 }
 
 /**
@@ -95,7 +95,7 @@
  */
 
 [aria-hidden='false'][hidden] {
-    display: initial;
+  display: initial;
 }
 
 /**
@@ -103,8 +103,8 @@
  */
 
 [aria-hidden='false'][hidden]:not(:focus) {
-    clip: rect(0, 0, 0, 0);
-    position: absolute;
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
 }
 
 /* Document
@@ -118,8 +118,8 @@
 *,
 ::before,
 ::after {
-    box-sizing: border-box; /* 1 */
-    background-repeat: no-repeat; /* 2 */
+  box-sizing: border-box; /* 1 */
+  background-repeat: no-repeat; /* 2 */
 }
 
 /**
@@ -129,8 +129,8 @@
 
 ::before,
 ::after {
-    text-decoration: inherit; /* 1 */
-    vertical-align: inherit; /* 2 */
+  text-decoration: inherit; /* 1 */
+  vertical-align: inherit; /* 2 */
 }
 
 /**
@@ -143,13 +143,13 @@
  */
 
 :root {
-    cursor: default; /* 1 */
-    line-height: 1.75; /* 2 */
-    overflow-wrap: break-word; /* 3 */
-    -moz-tab-size: 4; /* 4 */
-    tab-size: 4; /* 4 */
-    -webkit-tap-highlight-color: transparent; /* 5 */
-    -webkit-text-size-adjust: 100%; /* 6 */
+  cursor: default; /* 1 */
+  line-height: 1.75; /* 2 */
+  overflow-wrap: break-word; /* 3 */
+  -moz-tab-size: 4; /* 4 */
+  tab-size: 4; /* 4 */
+  -webkit-tap-highlight-color: transparent; /* 5 */
+  -webkit-text-size-adjust: 100%; /* 6 */
 }
 
 /**
@@ -160,28 +160,29 @@
  * 5. Improve consistency of fonts in all browsers (opinionated).
  */
 body {
-    block-size: -moz-available; /* 1 */
-    block-size: -webkit-fill-available; /* 1 */
-    block-size: stretch; /* 1 */
-    margin: 0; /* 2 */
-    background: var(--chisel-neutral-50); /* 3 */
-    color: var(--chisel-neutral-900); /* 4 */
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
-        Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; /* 5 */
-    font-weight: 400; /* 5 */
+  block-size: -moz-available; /* 1 */
+  block-size: -webkit-fill-available; /* 1 */
+  block-size: stretch; /* 1 */
+  margin: 0; /* 2 */
+  background: var(--chisel-neutral-50); /* 3 */
+  color: var(--chisel-neutral-900); /* 4 */
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; /* 5 */
+  font-weight: 400; /* 5 */
 }
 
 .container {
-    width: 100%;
-    max-width: var(--chisel-container-max-w);
-    margin: 0 auto;
-    padding: 0 clamp(1rem, 3vw, 3rem);
+  width: 100%;
+  max-width: var(--chisel-container-max-w);
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 3vw, 3rem);
 
-    @media (--chisel-desktop-xl) {
-        & {
-            padding: 0;
-        }
+  @media (--chisel-desktop-xl) {
+    & {
+      padding: 0;
     }
+  }
 }
 
 /* Reduced Motion
@@ -195,17 +196,17 @@ body {
   */
 
 @media (prefers-reduced-motion: reduce) {
-    *,
-    ::before,
-    ::after {
-        animation-delay: -1ms !important; /* 1 */
-        animation-duration: 1ms !important; /* 1 */
-        animation-iteration-count: 1 !important; /* 1 */
-        background-attachment: initial !important; /* 2 */
-        scroll-behavior: auto !important; /* 3 */
-        transition-delay: 0s !important; /* 4 */
-        transition-duration: 0s !important; /* 4 */
-    }
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important; /* 1 */
+    animation-duration: 1ms !important; /* 1 */
+    animation-iteration-count: 1 !important; /* 1 */
+    background-attachment: initial !important; /* 2 */
+    scroll-behavior: auto !important; /* 3 */
+    transition-delay: 0s !important; /* 4 */
+    transition-duration: 0s !important; /* 4 */
+  }
 }
 
 /* Typography
@@ -217,7 +218,7 @@ body {
 
 b,
 strong {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 /**
@@ -225,8 +226,8 @@ strong {
  */
 
 abbr[title] {
-    text-decoration: underline;
-    text-decoration: underline dotted;
+  text-decoration: underline;
+  text-decoration: underline dotted;
 }
 
 /**
@@ -235,8 +236,8 @@ abbr[title] {
  */
 
 p {
-    margin-top: 0;
-    margin-bottom: 1em;
+  margin-top: 0;
+  margin-bottom: 1em;
 }
 
 h1,
@@ -245,42 +246,42 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 3rem 0 1.38rem;
-    font-weight: 400;
-    line-height: 1.3;
+  margin: 3rem 0 1.38rem;
+  font-weight: 400;
+  line-height: 1.3;
 }
 
 h1,
 .h1 {
-    margin-top: 0;
-    font-size: var(--chisel-h1);
+  margin-top: 0;
+  font-size: var(--chisel-h1);
 }
 
 h2,
 .h2 {
-    font-size: var(--chisel-h2);
+  font-size: var(--chisel-h2);
 }
 
 h3,
 .h3 {
-    font-size: var(--chisel-h3);
+  font-size: var(--chisel-h3);
 }
 
 h4,
 .h4 {
-    font-size: var(--chisel-h4);
+  font-size: var(--chisel-h4);
 }
 
 h5,
 .h5 {
-    font-size: var(--chisel-h5);
+  font-size: var(--chisel-h5);
 }
 
 h6,
 small,
 .h6 {
-    font-size: var(--chisel-h6);
-    letter-spacing: 0.05em;
+  font-size: var(--chisel-h6);
+  letter-spacing: 0.05em;
 }
 
 /* Blockquotes
@@ -292,14 +293,14 @@ small,
  */
 
 blockquote {
-    border-left: 3px solid var(--chisel-neutral-300); /* 1 */
-    margin-left: 0; /* 2 */
-    margin-right: 0; /* 2 */
-    padding: 1em 1.5em; /* 2 */
+  border-left: 3px solid var(--chisel-neutral-300); /* 1 */
+  margin-left: 0; /* 2 */
+  margin-right: 0; /* 2 */
+  padding: 1em 1.5em; /* 2 */
 
-    & *:last-child {
-        margin-bottom: 0; /* 2 */
-    }
+  & *:last-child {
+    margin-bottom: 0; /* 2 */
+  }
 }
 
 /* Buttons
@@ -310,95 +311,95 @@ button,
 input[type='button'],
 input[type='reset'],
 input[type='submit'] {
-    /**
+  /**
      * Default button theme
      */
-    background-color: var(--chisel-primary);
-    border: 2px solid var(--chisel-primary);
-    border-radius: 0.4rem;
-    color: var(--chisel-neutral-50);
-    cursor: pointer;
-    display: inline-block;
-    font-weight: 700;
-    height: 3rem;
-    line-height: 3rem;
-    letter-spacing: 0.05em;
-    padding: 0 3rem;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    white-space: nowrap;
-    -webkit-appearance: button;
+  background-color: var(--chisel-primary);
+  border: 2px solid var(--chisel-primary);
+  border-radius: 0.4rem;
+  color: var(--chisel-neutral-50);
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 700;
+  height: 3rem;
+  line-height: 3rem;
+  letter-spacing: 0.05em;
+  padding: 0 3rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  -webkit-appearance: button;
 
-    /**
+  /**
      * Default button focus and hover states
      */
-    &:focus,
-    &:hover {
-        background-color: var(--chisel-neutral-500);
-        border-color: var(--chisel-neutral-500);
-        color: var(--chisel-neutral-50);
-    }
+  &:focus,
+  &:hover {
+    background-color: var(--chisel-neutral-500);
+    border-color: var(--chisel-neutral-500);
+    color: var(--chisel-neutral-50);
+  }
 
-    /**
+  /**
      * Default button disabled state
      */
-    &[disabled] {
-        cursor: default;
-        opacity: 0.5;
+  &[disabled] {
+    cursor: default;
+    opacity: 0.5;
 
-        &:focus,
-        &:hover {
-            background-color: var(--chisel-primary);
-            border-color: var(--chisel-primary);
-        }
+    &:focus,
+    &:hover {
+      background-color: var(--chisel-primary);
+      border-color: var(--chisel-primary);
     }
+  }
 
-    /**
+  /**
      * Outline button themes
      */
-    &.button-outline {
-        background-color: transparent;
-        color: var(--chisel-primary);
+  &.button-outline {
+    background-color: transparent;
+    color: var(--chisel-primary);
 
-        &:focus,
-        &:hover {
-            background-color: transparent;
-            border-color: var(--chisel-neutral-500);
-            color: var(--chisel-neutral-500);
-        }
-
-        &[disabled] {
-            &:focus,
-            &:hover {
-                border-color: inherit;
-                color: var(--chisel-primary);
-            }
-        }
+    &:focus,
+    &:hover {
+      background-color: transparent;
+      border-color: var(--chisel-neutral-500);
+      color: var(--chisel-neutral-500);
     }
 
-    /**
+    &[disabled] {
+      &:focus,
+      &:hover {
+        border-color: inherit;
+        color: var(--chisel-primary);
+      }
+    }
+  }
+
+  /**
      * Clear button styles
      */
-    &.button-clear {
-        background-color: transparent;
-        border-color: transparent;
-        color: var(--chisel-primary);
+  &.button-clear {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--chisel-primary);
 
-        &:focus,
-        &:hover {
-            background-color: transparent;
-            border-color: transparent;
-            color: var(--chisel-neutral-500);
-        }
-
-        &[disabled] {
-            &:focus,
-            &:hover {
-                color: var(--chisel-primary);
-            }
-        }
+    &:focus,
+    &:hover {
+      background-color: transparent;
+      border-color: transparent;
+      color: var(--chisel-neutral-500);
     }
+
+    &[disabled] {
+      &:focus,
+      &:hover {
+        color: var(--chisel-primary);
+      }
+    }
+  }
 }
 
 /* Code
@@ -412,8 +413,9 @@ code,
 kbd,
 samp,
 pre {
-    font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace; /* 1 */
-    font-size: 1em; /* 2 */
+  font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo,
+    monospace; /* 1 */
+  font-size: 1em; /* 2 */
 }
 
 /**
@@ -424,11 +426,11 @@ pre {
  */
 
 code {
-    background: var(--chisel-neutral-200); /* 1 */
-    border-radius: 0.4rem; /* 2 */
-    margin: 0 0.2rem; /* 3 */
-    padding: 0.2rem 0.5rem; /* 3 */
-    white-space: no-wrap; /* 4 */
+  background: var(--chisel-neutral-200); /* 1 */
+  border-radius: 0.4rem; /* 2 */
+  margin: 0 0.2rem; /* 3 */
+  padding: 0.2rem 0.5rem; /* 3 */
+  white-space: no-wrap; /* 4 */
 }
 
 /**
@@ -438,17 +440,17 @@ code {
  * 4. Improve whitespace and line breaks on all browsers.
  */
 pre {
-    background: var(--chisel-neutral-200); /* 1 */
-    border-left: 3px solid var(--chisel-primary); /* 2 */
-    overflow-y: hidden; /* 3 */
-    white-space: normal; /* 4 */
+  background: var(--chisel-neutral-200); /* 1 */
+  border-left: 3px solid var(--chisel-primary); /* 2 */
+  overflow-y: hidden; /* 3 */
+  white-space: normal; /* 4 */
 
-    & > code {
-        border-radius: 0; /* 4 */
-        display: block; /* 4 */
-        padding: 1rem 1.5rem; /* 4 */
-        white-space: pre; /* 4 */
-    }
+  & > code {
+    border-radius: 0; /* 4 */
+    display: block; /* 4 */
+    padding: 1rem 1.5rem; /* 4 */
+    white-space: pre; /* 4 */
+  }
 }
 
 /* Dividers
@@ -459,9 +461,9 @@ pre {
  * 2. Add a default top & bottom margin (opinionated).
  */
 hr {
-    border: 0;
-    border-top: 1px solid var(--chisel-neutral-300);
-    margin: 3rem 0;
+  border: 0;
+  border-top: 1px solid var(--chisel-neutral-300);
+  margin: 3rem 0;
 }
 
 /* Forms & Input
@@ -486,24 +488,24 @@ input[type='week'],
 input:not([type]),
 textarea,
 select {
-    -webkit-appearance: none;
-    background-color: transparent;
-    border: 1px solid var(--chisel-neutral-300);
-    color: inherit;
-    border-radius: 0.4rem;
-    box-shadow: none;
-    box-sizing: inherit;
-    height: 3rem;
-    padding: 0.6rem 1rem 0.7rem;
-    width: 100%;
-    font-family: inherit;
-    font-size: 100%;
-    line-height: 1.15;
-    margin: 0;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 1px solid var(--chisel-neutral-300);
+  color: inherit;
+  border-radius: 0.4rem;
+  box-shadow: none;
+  box-sizing: inherit;
+  height: 3rem;
+  padding: 0.6rem 1rem 0.7rem;
+  width: 100%;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
 
-    &:focus {
-        border-color: var(--chisel-primary);
-    }
+  &:focus {
+    border-color: var(--chisel-primary);
+  }
 }
 
 /**
@@ -512,8 +514,8 @@ select {
  */
 
 input[type='search'] {
-    -webkit-appearance: textfield; /* 1 */
-    outline-offset: -2px; /* 2 */
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
 }
 
 /**
@@ -521,8 +523,8 @@ input[type='search'] {
  */
 
 ::-webkit-input-placeholder {
-    color: inherit;
-    opacity: 0.54;
+  color: inherit;
+  opacity: 0.54;
 }
 
 /**
@@ -530,7 +532,7 @@ input[type='search'] {
  */
 
 ::-webkit-search-decoration {
-    -webkit-appearance: none;
+  -webkit-appearance: none;
 }
 
 /**
@@ -539,8 +541,8 @@ input[type='search'] {
   */
 
 ::-webkit-file-upload-button {
-    -webkit-appearance: button; /* 1 */
-    font: inherit; /* 2 */
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
 }
 
 /**
@@ -549,7 +551,7 @@ input[type='search'] {
  */
 
 :-moz-ui-invalid {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 /**
@@ -557,21 +559,21 @@ input[type='search'] {
  */
 
 select {
+  /* TODO: Find a way to use CSS variables for the down arrow */
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%23d1d5db" d="M0,0l6,8l6-8"/></svg>')
+    center right no-repeat;
+  padding-right: 3rem;
+  text-transform: none;
+
+  &:focus {
     /* TODO: Find a way to use CSS variables for the down arrow */
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%23d1d5db" d="M0,0l6,8l6-8"/></svg>')
-        center right no-repeat;
-    padding-right: 3rem;
-    text-transform: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%23325476" d="M0,0l6,8l6-8"/></svg>');
+  }
 
-    &:focus {
-        /* TODO: Find a way to use CSS variables for the down arrow */
-        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%23325476" d="M0,0l6,8l6-8"/></svg>');
-    }
-
-    &[multiple] {
-        background: none;
-        height: auto;
-    }
+  &[multiple] {
+    background: none;
+    height: auto;
+  }
 }
 
 /**
@@ -581,11 +583,11 @@ select {
  */
 
 textarea {
-    min-height: 6.5rem; /* 1 */
-    margin: 0; /* 2 */
-    overflow: auto; /* 3 */
-    resize: vertical; /* 3 */
-    resize: block; /* 3 */
+  min-height: 6.5rem; /* 1 */
+  margin: 0; /* 2 */
+  overflow: auto; /* 3 */
+  resize: vertical; /* 3 */
+  resize: block; /* 3 */
 }
 
 /**
@@ -595,9 +597,9 @@ textarea {
 
 label,
 legend {
-    display: block; /* 2 */
-    font-weight: 700; /* 1 */
-    margin-bottom: 0.5rem; /* 2 */
+  display: block; /* 2 */
+  font-weight: 700; /* 1 */
+  margin-bottom: 0.5rem; /* 2 */
 }
 
 /**
@@ -605,8 +607,8 @@ legend {
  */
 
 fieldset {
-    border-width: 0;
-    padding: 0;
+  border-width: 0;
+  padding: 0;
 }
 
 /**
@@ -615,7 +617,7 @@ fieldset {
 
 input[type='checkbox'],
 input[type='radio'] {
-    display: inline;
+  display: inline;
 }
 
 /**
@@ -623,9 +625,9 @@ input[type='radio'] {
  */
 
 .label-inline {
-    display: inline-block;
-    font-weight: normal;
-    margin-left: 0.5rem;
+  display: inline-block;
+  font-weight: normal;
+  margin-left: 0.5rem;
 }
 
 /* Iframes
@@ -636,7 +638,7 @@ input[type='radio'] {
  */
 
 iframe {
-    border-style: none;
+  border-style: none;
 }
 
 /* Images
@@ -646,7 +648,7 @@ iframe {
  * Limit images to their parent's width.
  */
 img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 /**
@@ -654,7 +656,7 @@ img {
  */
 
 svg:not([fill]) {
-    fill: currentColor;
+  fill: currentColor;
 }
 
 /* Links
@@ -664,12 +666,12 @@ svg:not([fill]) {
  * Color links as primary by default, neutral-700 when hovered or focused (theme).
  */
 a {
-    color: var(--chisel-primary);
+  color: var(--chisel-primary);
 
-    &:focus,
-    &:hover {
-        color: var(--chisel-neutral-700);
-    }
+  &:focus,
+  &:hover {
+    color: var(--chisel-neutral-700);
+  }
 }
 
 /* Lists
@@ -684,16 +686,16 @@ a {
 dl,
 ol,
 ul {
-    list-style: none; /* 1 */
-    margin-top: 0; /* 2 */
-    padding-left: 0; /* 2 */
+  list-style: none; /* 1 */
+  margin-top: 0; /* 2 */
+  padding-left: 0; /* 2 */
 
-    dl,
-    ol,
-    ul {
-        font-size: 90%; /* 3 */
-        margin: 1.5rem 0 1.5rem 3rem; /* 4 */
-    }
+  dl,
+  ol,
+  ul {
+    font-size: 90%; /* 3 */
+    margin: 1.5rem 0 1.5rem 3rem; /* 4 */
+  }
 }
 
 /**
@@ -701,7 +703,7 @@ ul {
  */
 
 ol {
-    list-style: decimal inside;
+  list-style: decimal inside;
 }
 
 /**
@@ -709,7 +711,7 @@ ol {
  */
 
 ul {
-    list-style: circle inside;
+  list-style: circle inside;
 }
 
 /* Progress
@@ -720,7 +722,7 @@ ul {
  */
 
 progress {
-    vertical-align: baseline;
+  vertical-align: baseline;
 }
 
 /* Element Spacing
@@ -731,14 +733,14 @@ button,
 dd,
 dt,
 li {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 fieldset,
 input,
 select,
 textarea {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 blockquote,
@@ -750,7 +752,7 @@ p,
 pre,
 table,
 ul {
-    margin-bottom: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 /* Tables
@@ -765,20 +767,20 @@ ul {
  * 6. On screens larger than phones, remove horizontal scrolling.
  */
 table {
-    border-spacing: 0; /* 1 */
-    border-color: inherit; /* 2 */
-    display: block; /* 3 */
-    overflow-x: auto; /* 3 */
-    text-align: left; /* 4 */
-    text-indent: 0; /* 5 */
-    width: 100%; /* 3 */
+  border-spacing: 0; /* 1 */
+  border-color: inherit; /* 2 */
+  display: block; /* 3 */
+  overflow-x: auto; /* 3 */
+  text-align: left; /* 4 */
+  text-indent: 0; /* 5 */
+  width: 100%; /* 3 */
 
-    @media (--chisel-tablet) {
-        & {
-            display: table; /* 6 */
-            overflow-x: initial; /* 6 */
-        }
+  @media (--chisel-tablet) {
+    & {
+      display: table; /* 6 */
+      overflow-x: initial; /* 6 */
     }
+  }
 }
 
 /**
@@ -787,16 +789,16 @@ table {
  */
 td,
 th {
-    border-bottom: 1px solid var(--chisel-neutral-200); /* 1 */
-    padding: 1.2rem 1.5rem; /* 2 */
+  border-bottom: 1px solid var(--chisel-neutral-200); /* 1 */
+  padding: 1.2rem 1.5rem; /* 2 */
 
-    &:first-child {
-        padding-left: 0; /* 2 */
-    }
+  &:first-child {
+    padding-left: 0; /* 2 */
+  }
 
-    &:last-child {
-        padding-right: 0; /* 2 */
-    }
+  &:last-child {
+    padding-right: 0; /* 2 */
+  }
 }
 
 /* Dialogs
@@ -807,30 +809,30 @@ th {
  */
 
 dialog {
-    background-color: var(--chisel-neutral-50);
-    border: solid;
-    color: var(--chisel-neutral-900);
-    display: block;
-    height: -moz-fit-content;
-    height: -webkit-fit-content;
-    height: fit-content;
-    left: 0;
-    margin: auto;
-    padding: 1em;
-    position: absolute;
-    right: 0;
-    width: -moz-fit-content;
-    width: -webkit-fit-content;
-    width: fit-content;
+  background-color: var(--chisel-neutral-50);
+  border: solid;
+  color: var(--chisel-neutral-900);
+  display: block;
+  height: -moz-fit-content;
+  height: -webkit-fit-content;
+  height: fit-content;
+  left: 0;
+  margin: auto;
+  padding: 1em;
+  position: absolute;
+  right: 0;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;
 }
 
 dialog:not([open]) {
-    display: none;
+  display: none;
 }
 /*
  * Add the correct display in Safari.
  */
 
 summary {
-    display: list-item;
+  display: list-item;
 }

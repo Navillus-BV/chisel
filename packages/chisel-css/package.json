@@ -1,60 +1,60 @@
 {
-    "name": "chisel.css",
-    "version": "0.1.1",
-    "description": "A minimalist CSS framework.",
-    "main": "dist/chisel.min.css",
-    "files": [
-        "dist/chisel.css",
-        "dist/chisel.min.css",
-        "example.html"
-    ],
-    "scripts": {
-        "prebuild": "test \"$CI\" = true && npx pnpm install --store=node_modules/.pnpm-store || echo skipping pnpm install",
-        "build": "run-p build:*",
-        "build:dev": "NODE_ENV=development postcss src/chisel.css -o dist/chisel.css",
-        "build:prod": "NODE_ENV=production postcss src/chisel.css -o dist/chisel.min.css",
-        "start": "run-p start:*",
-        "start:dev": "NODE_ENV=development postcss src/chisel.css -o dist/chisel.css -w",
-        "start:prod": "NODE_ENV=production postcss src/chisel.css -o dist/chisel.min.css -w",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Navillus-BV/chisel.git"
-    },
-    "keywords": [
-        "bootstrap",
-        "css",
-        "css3",
-        "flexbox",
-        "front-end",
-        "html",
-        "html5",
-        "responsive",
-        "mobile",
-        "mobile-first",
-        "postcss"
-    ],
-    "author": {
-        "name": "Tony Sullivan",
-        "email": "tony@navillus.nl",
-        "url": "https://navillus.nl"
-    },
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/Navillus-BV/chisel/issues"
-    },
-    "homepage": "https://github.com/Navillus-BV/chisel#readme",
-    "devDependencies": {
-        "autoprefixer": "^10.2.5",
-        "cssnano": "^5.0.3",
-        "npm-run-all": "^4.1.5",
-        "postcss": "^8.2.15",
-        "postcss-cli": "^8.3.1",
-        "postcss-combine-media-query": "^1.0.1",
-        "postcss-custom-media": "^8.0.0",
-        "postcss-custom-properties": "^11.0.0",
-        "postcss-import": "^14.0.2",
-        "postcss-nesting": "^8.0.1"
-    }
+  "name": "chisel.css",
+  "version": "0.1.1",
+  "description": "A minimalist CSS framework.",
+  "main": "dist/chisel.min.css",
+  "files": [
+    "dist/chisel.css",
+    "dist/chisel.min.css",
+    "example.html"
+  ],
+  "scripts": {
+    "prebuild": "test \"$CI\" = true && npx pnpm install --store=node_modules/.pnpm-store || echo skipping pnpm install",
+    "build": "run-p build:*",
+    "build:dev": "NODE_ENV=development postcss src/chisel.css -o dist/chisel.css",
+    "build:prod": "NODE_ENV=production postcss src/chisel.css -o dist/chisel.min.css",
+    "start": "run-p start:*",
+    "start:dev": "NODE_ENV=development postcss src/chisel.css -o dist/chisel.css -w",
+    "start:prod": "NODE_ENV=production postcss src/chisel.css -o dist/chisel.min.css -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Navillus-BV/chisel.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "css",
+    "css3",
+    "flexbox",
+    "front-end",
+    "html",
+    "html5",
+    "responsive",
+    "mobile",
+    "mobile-first",
+    "postcss"
+  ],
+  "author": {
+    "name": "Tony Sullivan",
+    "email": "tony@navillus.nl",
+    "url": "https://navillus.nl"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Navillus-BV/chisel/issues"
+  },
+  "homepage": "https://github.com/Navillus-BV/chisel#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "cssnano": "^5.0.3",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.2.15",
+    "postcss-cli": "^8.3.1",
+    "postcss-combine-media-query": "^1.0.1",
+    "postcss-custom-media": "^8.0.0",
+    "postcss-custom-properties": "^11.0.0",
+    "postcss-import": "^14.0.2",
+    "postcss-nesting": "^8.0.1"
+  }
 }

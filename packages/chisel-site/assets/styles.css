@@ -1,48 +1,48 @@
 body {
-    font-family: Poppins, sans-serif;
+  font-family: Poppins, sans-serif;
 }
 
 .hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    background: var(--chisel-primary);
-    color: var(--chisel-neutral-50);
-    z-index: 10;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  background: var(--chisel-primary);
+  color: var(--chisel-neutral-50);
+  z-index: 10;
 }
 
 .header__brand {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.75em;
-    color: inherit;
-    text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75em;
+  color: inherit;
+  text-decoration: none;
 }
 
 .header__brand img {
-    height: 2rem;
+  height: 2rem;
 }
 
 .header__github {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 20;
-    height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 20;
+  height: 100%;
 }
 
 .header__github img {
-    height: 4rem;
+  height: 4rem;
 }

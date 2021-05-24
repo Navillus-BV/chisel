@@ -34,13 +34,13 @@ or from CDN
 
 ```css
 :root {
-    --chisel-primary: #325476;
-    --chisel-neutral-50: #f9fafb;
-    --chisel-neutral-200: #e5e7eb;
-    --chisel-neutral-300: #d1d5db;
-    --chisel-neutral-500: #6b7280;
-    --chisel-neutral-700: #374151;
-    --chisel-neutral-900: #111827;
+  --chisel-primary: #325476;
+  --chisel-neutral-50: #f9fafb;
+  --chisel-neutral-200: #e5e7eb;
+  --chisel-neutral-300: #d1d5db;
+  --chisel-neutral-500: #6b7280;
+  --chisel-neutral-700: #374151;
+  --chisel-neutral-900: #111827;
 }
 ```
 
@@ -60,12 +60,12 @@ Type scaling is also exposed with CSS Variables. Do you prefer the larger range 
 
 ```css
 :root {
-    --chisel-h1: 3.052rem;
-    --chisel-h2: 2.441rem;
-    --chisel-h3: 1.953rem;
-    --chisel-h4: 1.563rem;
-    --chisel-h5: 1.25rem;
-    --chisel-h6: 0.8rem;
+  --chisel-h1: 3.052rem;
+  --chisel-h2: 2.441rem;
+  --chisel-h3: 1.953rem;
+  --chisel-h4: 1.563rem;
+  --chisel-h5: 1.25rem;
+  --chisel-h6: 0.8rem;
 }
 ```
 
@@ -75,22 +75,22 @@ DOM heirarchy is important for both SEO and accessibility. Sometimes you just ne
 
 ```css
 .h1 {
-    font-size: var(--chisel-h1);
+  font-size: var(--chisel-h1);
 }
 .h2 {
-    font-size: var(--chisel-h2);
+  font-size: var(--chisel-h2);
 }
 .h3 {
-    font-size: var(--chisel-h3);
+  font-size: var(--chisel-h3);
 }
 .h4 {
-    font-size: var(--chisel-h4);
+  font-size: var(--chisel-h4);
 }
 .h5 {
-    font-size: var(--chisel-h5);
+  font-size: var(--chisel-h5);
 }
 .h6 {
-    font-size: var(--chisel-h6);
+  font-size: var(--chisel-h6);
 }
 ```
 

@@ -1,42 +1,42 @@
 {
-    "name": "chisel.css",
-    "version": "0.1.1",
-    "description": "A minimalist CSS framework.",
-    "main": "dist/chisel.min.css",
-    "scripts": {
-        "build": "pnpm recursive run build",
-        "start": "pnpm recursive run start",
-        "test": "pnpm recursive run test",
-        "lint": "prettier --config .prettierrc.js --write ."
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Navillus-BV/chisel.git"
-    },
-    "keywords": [
-        "bootstrap",
-        "css",
-        "css3",
-        "flexbox",
-        "html",
-        "html5",
-        "responsive",
-        "mobile",
-        "mobile-first",
-        "postcss"
-    ],
-    "author": {
-        "name": "Tony Sullivan",
-        "email": "tony@navillus.nl",
-        "url": "https://navillus.nl"
-    },
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/Navillus-BV/chisel/issues"
-    },
-    "homepage": "https://github.com/Navillus-BV/chisel#readme",
-    "devDependencies": {
-        "pnpm": "^6.4.0",
-        "prettier": "^2.3.0"
-    }
+  "name": "chisel.css",
+  "version": "0.1.1",
+  "description": "A minimalist CSS framework.",
+  "main": "dist/chisel.min.css",
+  "scripts": {
+    "build": "pnpm recursive run build",
+    "start": "pnpm recursive run start",
+    "test": "pnpm recursive run test",
+    "lint": "prettier --config .prettierrc.js --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Navillus-BV/chisel.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "css",
+    "css3",
+    "flexbox",
+    "html",
+    "html5",
+    "responsive",
+    "mobile",
+    "mobile-first",
+    "postcss"
+  ],
+  "author": {
+    "name": "Tony Sullivan",
+    "email": "tony@navillus.nl",
+    "url": "https://navillus.nl"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Navillus-BV/chisel/issues"
+  },
+  "homepage": "https://github.com/Navillus-BV/chisel#readme",
+  "devDependencies": {
+    "pnpm": "^6.4.0",
+    "prettier": "^2.3.0"
+  }
 }
