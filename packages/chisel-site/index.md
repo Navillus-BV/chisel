@@ -4,13 +4,11 @@ title: Chisel - A minimalist CSS framework
 description: A minimalist CSS framework
 ---
 
-# Chisel
-
-> A minimalist CSS framework.
-
 ## ...Another CSS framework?
 
-Yes, but hopefully not for long! The goal of `chisel.css` is to provide the out of the box experience that HTML elements should have been given. Our measure of success with `chisel` is to become whittled down to nothing as browser vendors throw some extra attention behind elements' default styles.
+Yes, but hopefully not for long! The goal of `chisel.css` is to provide the out of the box experience that HTML elements should have been given.
+
+Our goal with `chisel` is to call attention to the need for improving the default style of HTML elements. If we succeed, browsers will focus more effort on default element styles and `chisel` will be whittled down to an empty CSS file.
 
 ## Getting Started
 
@@ -47,6 +45,44 @@ or from CDN
 `--chisel-primary` is the primary brand color used, by default it is the same blue color as `chisel.css`'s logo. The `--chisel-neutral` colors are shades of gray used out of the box for backgrounds, text color, borders, etc.
 
 Because these are native CSS variables, you can override them globally on your page or scope color changes for particular sections of your site.
+
+#### Dark Mode
+
+Dark mode support is added by default!
+
+##### `prefers-color-scheme`
+
+`chisel.css` will use dark mode automatically based on browser's built-in [prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) media query.
+
+##### `data-chisel-theme="dark"`
+
+Themes can also be changed dynamically by adding a `data-chisel-theme` attribute to the any HTML element.
+
+```html
+<html data-chisel-theme="dark">
+  <!-- Dark mode enabled -->
+</html>
+```
+
+Because chisel is built on CSS variables, portions of a page can actually use different themes. This can be particularly helpful when a section of content on a page needs to be themed differently for emphasis.
+
+```html
+<body>
+  <section>
+    <!-- normal theme -->
+  </section>
+
+  <section data-chisel-theme="dark">
+    <!-- emphasised block of content in another theme -->
+  </section>
+
+  <section>
+    <!-- back to the normal theme -->
+  </section>
+</body>
+```
+
+**WIP** We plan to add multiple color pallettes into `chisel.css` in the future. Star the [GitHub repo](https://github.com/navillus-bv/chisel) to follow the latest updates. Even better, create your own themes and file a PR to have them included out of the box!
 
 ### Typography
 
