@@ -218,8 +218,16 @@ h5,
 h6 {
   margin: 3rem 0 1.38rem;
   font-weight: 400;
-  line-height: 1.3;
+  line-height: 1.3
+
+  /**
+   * Remove the top margin for any header that is the first child element.
+   */
 }
+
+h1:not(* + *), h2:not(* + *), h3:not(* + *), h4:not(* + *), h5:not(* + *), h6:not(* + *) {
+    margin-top: 0;
+  }
 
 h1,
 .h1 {
