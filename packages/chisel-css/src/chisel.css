@@ -438,6 +438,7 @@ pre {
   white-space: normal; /* 4 */
 
   & > code {
+    background: transparent; /* 1 */
     border-radius: 0; /* 4 */
     display: block; /* 4 */
     padding: 1rem 1.5rem; /* 4 */
