@@ -3,10 +3,6 @@ body {
 }
 
 .header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
   padding: 1rem 0;
   position: sticky;
   top: 0;
@@ -17,7 +13,12 @@ body {
 
 .header a {
   color: inherit;
-  text-decoration: none;
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .header__github {
@@ -30,6 +31,17 @@ body {
 
 .header__github img {
   height: 4rem;
+}
+
+.footer {
+  padding: 3rem 0;
+  background: var(--chisel-primary);
+  color: var(--chisel-neutral-50);
+  text-align: center;
+}
+
+.footer a {
+  color: inherit;
 }
 
 .hero {
