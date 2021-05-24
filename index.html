@@ -1,106 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Chisel - A minimalist CSS framework</title>
-        <meta name="Description" content="A minimalist CSS framework" />
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <title>Chisel - A minimalist CSS framework</title>
+    <meta name="Description" content="A minimalist CSS framework" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-        <link rel="mask-icon" href="assets/favicon-mask.svg" color="#ffc331" />
+    <link rel="icon" href="assets/favicon.ico" />
+    <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-        <link rel="stylesheet" type="text/css" href="fonts/poppins/400.css" />
-        <link rel="stylesheet" type="text/css" href="assets/chisel.min.css" />
-        <link rel="stylesheet" type="text/css" href="assets/styles.css" />
-    </head>
-    <body>
-        <header class="header">
-            <div class="container">
-                <a href="/" alt="Back to Home" class="header__brand">
-                    <img src="assets/favicon.svg" aria-hidden />
-                    <span class="h5"><small>by</small> Navillus</span>
-                </a>
-                <a href="https://github.com/navillus-bv/chisel" alt="Find us on Github" class="header__github">
-                    <img src="assets/github.svg" aria-hidden />
-                </a>
-            </div>
-        </header>
+    <link rel="stylesheet" type="text/css" href="fonts/poppins/400.css" />
+    <link rel="stylesheet" type="text/css" href="assets/chisel.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/styles.css" />
+    <link rel="stylesheet" type="text/css" href="assets/prism-theme.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <a href="/" alt="Back to Home" class="h5"> chisel.css </a>
+        <a
+          href="https://github.com/navillus-bv/chisel"
+          alt="Find us on Github"
+          class="header__github"
+        >
+          <img src="assets/github.svg" aria-hidden />
+        </a>
+      </div>
+    </header>
 
-        <div class="container">
-<div class="hero">
     <div class="container">
-        <img src="assets/banner.svg" alt="Chisel - A minimalist CSS framework." />
-    </div>
+<div class="hero">
+  <img src="/assets/logo.svg" aria-hidden />
+  <h1>A minimalist CSS framework.</h1>
+  <p class="h5">
+    Browser resets and beautifully designed HTML elements out of the box, in
+    only 3.2kb.
+  </p>
+  <small>
+    Built with ♥ by <a href="https://navillus.dev">Navillus</a>. Licensed under
+    the
+    <a href="https://github.com/Navillus-BV/chisel/blob/main/LICENSE">
+      MIT License
+    </a>
+    .
+  </small>
 </div>
 
-<h1>Chisel</h1>
-<blockquote>
-<p>A minimalist CSS framework.</p>
-</blockquote>
-<h2>...Another CSS framework?</h2>
-<p>Yes, but hopefully not for long! The goal of <code>chisel.css</code> is to provide the out of the box experience that HTML elements should have been given. Our measure of success with <code>chisel</code> is to become whittled down to nothing as browser vendors throw some extra attention behind elements' default styles.</p>
-<h2>Getting Started</h2>
-<h3>Download</h3>
+<h2 id="...another-css-framework%3F">...Another CSS framework? <a class="direct-link" href="#...another-css-framework%3F">#</a></h2>
+<p>Yes, but hopefully not for long! The goal of <code>chisel.css</code> is to provide the out of the box experience that HTML elements should have been given.</p>
+<p>Our goal with <code>chisel</code> is to call attention to the need for improving the default style of HTML elements. If we succeed, browsers will focus more effort on default element styles and <code>chisel</code> will be whittled down to an empty CSS file.</p>
+<h2 id="getting-started">Getting Started <a class="direct-link" href="#getting-started">#</a></h2>
+<h3 id="download">Download <a class="direct-link" href="#download">#</a></h3>
 <p>Install with NPM (or yarn, or pnpm)</p>
-<pre><code class="language-sh">npm i -S chisel.css
-</code></pre>
+<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> i -S chisel.css</code></pre>
 <p>or from CDN</p>
-<pre><code class="language-html">&lt;link href=&quot;https://unpkg.com/chisel.css&quot; rel=&quot;stylesheet&quot; /&gt;
-</code></pre>
-<h3>CSS Variables</h3>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://unpkg.com/chisel.css<span class="token punctuation">"</span></span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
+<h3 id="css-variables">CSS Variables <a class="direct-link" href="#css-variables">#</a></h3>
 <p><code>chisel.css</code> uses CSS variables for all our colors making it dead simple to change themes, add your own dark mode, etc.</p>
-<pre><code class="language-css">:root {
-    --chisel-primary: #325476;
-    --chisel-neutral-50: #f9fafb;
-    --chisel-neutral-200: #e5e7eb;
-    --chisel-neutral-300: #d1d5db;
-    --chisel-neutral-500: #6b7280;
-    --chisel-neutral-700: #374151;
-    --chisel-neutral-900: #111827;
-}
-</code></pre>
+<pre class="language-css"><code class="language-css"><span class="token selector">:root</span> <span class="token punctuation">{</span><br>  <span class="token property">--chisel-primary</span><span class="token punctuation">:</span> #325476<span class="token punctuation">;</span><br>  <span class="token property">--chisel-neutral-50</span><span class="token punctuation">:</span> #f9fafb<span class="token punctuation">;</span><br>  <span class="token property">--chisel-neutral-200</span><span class="token punctuation">:</span> #e5e7eb<span class="token punctuation">;</span><br>  <span class="token property">--chisel-neutral-300</span><span class="token punctuation">:</span> #d1d5db<span class="token punctuation">;</span><br>  <span class="token property">--chisel-neutral-500</span><span class="token punctuation">:</span> #6b7280<span class="token punctuation">;</span><br>  <span class="token property">--chisel-neutral-700</span><span class="token punctuation">:</span> #374151<span class="token punctuation">;</span><br>  <span class="token property">--chisel-neutral-900</span><span class="token punctuation">:</span> #111827<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
 <p><code>--chisel-primary</code> is the primary brand color used, by default it is the same blue color as <code>chisel.css</code>'s logo. The <code>--chisel-neutral</code> colors are shades of gray used out of the box for backgrounds, text color, borders, etc.</p>
 <p>Because these are native CSS variables, you can override them globally on your page or scope color changes for particular sections of your site.</p>
-<h3>Typography</h3>
+<h4 id="dark-mode">Dark Mode <a class="direct-link" href="#dark-mode">#</a></h4>
+<p>Dark mode support is added by default!</p>
+<h5 id="prefers-color-scheme"><code>prefers-color-scheme</code> <a class="direct-link" href="#prefers-color-scheme">#</a></h5>
+<p><code>chisel.css</code> will use dark mode automatically based on browser's built-in <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme">prefers-color-scheme</a> media query.</p>
+<h5 id="data-chisel-theme%3D%22dark%22"><code>data-chisel-theme=&quot;dark&quot;</code> <a class="direct-link" href="#data-chisel-theme%3D%22dark%22">#</a></h5>
+<p>Themes can also be changed dynamically by adding a <code>data-chisel-theme</code> attribute to the any HTML element.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">data-chisel-theme</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dark<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token comment">&lt;!-- Dark mode enabled --></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code></pre>
+<p>Because chisel is built on CSS variables, portions of a page can actually use different themes. This can be particularly helpful when a section of content on a page needs to be themed differently for emphasis.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span><span class="token punctuation">></span></span><br>    <span class="token comment">&lt;!-- normal theme --></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">></span></span><br><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">data-chisel-theme</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dark<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token comment">&lt;!-- emphasised block of content in another theme --></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">></span></span><br><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span><span class="token punctuation">></span></span><br>    <span class="token comment">&lt;!-- back to the normal theme --></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span></code></pre>
+<p><strong>WIP</strong> We plan to add multiple color pallettes into <code>chisel.css</code> in the future. Star the <a href="https://github.com/navillus-bv/chisel">GitHub repo</a> to follow the latest updates. Even better, create your own themes and file a PR to have them included out of the box!</p>
+<h3 id="typography">Typography <a class="direct-link" href="#typography">#</a></h3>
 <p>Proper type scaling can make all the difference in a design. <code>chisel.css</code> defaults headers to scale based on on the Major Third type scale, see <a href="https://type-scale.com/">type-scale.com</a> for more details.</p>
 <p>:rotating_light: Before the Github issues start piling up...yes we purposely chose to go with <code>h1, h2, h3, h4, h5, h6</code> for naming both the CSS variables and helper classes for type scaling. If that rubs you the wrong way, first consider how much easier to understand <code>class=&quot;h1&quot;</code> is compared to <code>class=&quot;text-4xl&quot;</code>.</p>
-<h4>Typography CSS Variables</h4>
+<h4 id="typography-css-variables">Typography CSS Variables <a class="direct-link" href="#typography-css-variables">#</a></h4>
 <p>Type scaling is also exposed with CSS Variables. Do you prefer the larger range of header sizes with the Perfect Fourth scale? No problem, override these variables in your CSS and you're all set.</p>
-<pre><code class="language-css">:root {
-    --chisel-h1: 3.052rem;
-    --chisel-h2: 2.441rem;
-    --chisel-h3: 1.953rem;
-    --chisel-h4: 1.563rem;
-    --chisel-h5: 1.25rem;
-    --chisel-h6: 0.8rem;
-}
-</code></pre>
-<h4>Typography <code>font-size</code> Classes</h4>
+<pre class="language-css"><code class="language-css"><span class="token selector">:root</span> <span class="token punctuation">{</span><br>  <span class="token property">--chisel-h1</span><span class="token punctuation">:</span> 3.052rem<span class="token punctuation">;</span><br>  <span class="token property">--chisel-h2</span><span class="token punctuation">:</span> 2.441rem<span class="token punctuation">;</span><br>  <span class="token property">--chisel-h3</span><span class="token punctuation">:</span> 1.953rem<span class="token punctuation">;</span><br>  <span class="token property">--chisel-h4</span><span class="token punctuation">:</span> 1.563rem<span class="token punctuation">;</span><br>  <span class="token property">--chisel-h5</span><span class="token punctuation">:</span> 1.25rem<span class="token punctuation">;</span><br>  <span class="token property">--chisel-h6</span><span class="token punctuation">:</span> 0.8rem<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<h4 id="typography-font-size-classes">Typography <code>font-size</code> Classes <a class="direct-link" href="#typography-font-size-classes">#</a></h4>
 <p>DOM heirarchy is important for both SEO and accessibility. Sometimes you just need a visually smaller header before a visually larger one - <code>chisel.css</code> has you covered.</p>
-<pre><code class="language-css">.h1 {
-    font-size: var(--chisel-h1);
-}
-.h2 {
-    font-size: var(--chisel-h2);
-}
-.h3 {
-    font-size: var(--chisel-h3);
-}
-.h4 {
-    font-size: var(--chisel-h4);
-}
-.h5 {
-    font-size: var(--chisel-h5);
-}
-.h6 {
-    font-size: var(--chisel-h6);
-}
-</code></pre>
+<pre class="language-css"><code class="language-css"><span class="token selector">.h1</span> <span class="token punctuation">{</span><br>  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--chisel-h1<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token selector">.h2</span> <span class="token punctuation">{</span><br>  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--chisel-h2<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token selector">.h3</span> <span class="token punctuation">{</span><br>  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--chisel-h3<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token selector">.h4</span> <span class="token punctuation">{</span><br>  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--chisel-h4<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token selector">.h5</span> <span class="token punctuation">{</span><br>  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--chisel-h5<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token selector">.h6</span> <span class="token punctuation">{</span><br>  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--chisel-h6<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
 <p>Add the <code>h4</code> class to your <code>&lt;h1&gt;</code> for the best of both worlds. Symantically your <code>&lt;h1&gt;</code> comes before the subheaders while visually the other headers are emphasized.</p>
 
 </div>
-        <script src="assets/script.js"></script>
-    </body>
+    <script src="assets/script.js"></script>
+  </body>
 </html>
