@@ -16,7 +16,7 @@ Our goal with `chisel` is to call attention to the need for improving the defaul
 
 Install with NPM (or yarn, or pnpm)
 
-```sh
+```bash
 npm i -S chisel.css
 ```
 

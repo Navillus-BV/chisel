@@ -27,7 +27,7 @@ $ npx @11ty/eleventy --serve
 
 ### Build
 
-```sh
+```bash
 $ npx @11ty/eleventy
 ```
 
