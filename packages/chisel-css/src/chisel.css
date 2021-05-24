@@ -4,7 +4,6 @@
  * ========================================================================== */
 @custom-media --chisel-tablet (min-width: 42em);
 @custom-media --chisel-desktop (min-width: 80em);
-@custom-media --chisel-desktop-xl (min-width: 112em);
 
 :root {
   /* Color variables */
@@ -173,16 +172,9 @@ body {
 }
 
 .container {
-  width: 100%;
+  width: 90vw;
   max-width: var(--chisel-container-max-w);
   margin: 0 auto;
-  padding: 0 clamp(1rem, 3vw, 3rem);
-
-  @media (--chisel-desktop-xl) {
-    & {
-      padding: 0;
-    }
-  }
 }
 
 /* Reduced Motion
