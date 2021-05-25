@@ -2,8 +2,9 @@
 
 /* Chisel Variables
  * ========================================================================== */
-@custom-media --chisel-tablet (min-width: 42em);
-@custom-media --chisel-desktop (min-width: 80em);
+@custom-media --chisel-phone (min-width: 375px);
+@custom-media --chisel-tablet (min-width: 672px);
+@custom-media --chisel-desktop (min-width: 1280px);
 
 :root {
   /* Color variables */
@@ -14,6 +15,35 @@
   --chisel-neutral-500: #6b7280;
   --chisel-neutral-700: #374151;
   --chisel-neutral-900: #111827;
+  --chisel-link: #0b70ba;
+
+  /* button colors */
+  --chisel-button-bg: var(--chisel-primary);
+  --chisel-button-border: var(--chisel-primary);
+  --chisel-button-fg: var(--chisel-neutral-50);
+
+  /* code colors */
+  --chisel-code-bg: var(--chisel-neutral-200);
+  --chisel-code-border: var(--chisel-primary);
+
+  /* dialog colors */
+  --chisel-dialog-bg: var(--color-neutral-50);
+  --chisel-dialog-border: var(--color-dialog-bg);
+  --chisel-dialog-fg: var(--color-neutral-900);
+
+  /* divider colors */
+  --chisel-divider-bg: var(--chisel-neutral-300);
+
+  /* input colors */
+  --chisel-input-bg: var(--chisel-neutral-300);
+  --chisel-input-fg: var(--chisel-neutral-900);
+  --chisel-input-border: var(--chisel-input-bg);
+
+  /* link colors */
+  --chisel-link-fg: var(--chisel-primary);
+
+  /* table colors */
+  --chisel-table-divider: var(--chisel-neutral-200);
 
   /* font-size variables */
   --chisel-h1: 3.052rem;
@@ -170,6 +200,7 @@
  * 5. Use a 4-space tab width in all browsers (opinionated).
  * 6. Remove the grey highlight on links in iOS (opinionated).
  * 7. Prevent adjustments of font size after orientation changes in iOS.
+ * 8. Scale font-size for responsive screens (opinionated).
  */
 
 :root {
@@ -181,6 +212,19 @@
   tab-size: 4; /* 5 */
   -webkit-tap-highlight-color: transparent; /* 6 */
   -webkit-text-size-adjust: 100%; /* 7 */
+  font-size: 14px; /* 8 */
+
+  @media (--chisel-phone) {
+    & {
+      font-size: 16px; /* 8 */
+    }
+  }
+
+  @media (--chisel-desktop) {
+    & {
+      font-size: 18px; /* 8 */
+    }
+  }
 }
 
 /**
@@ -253,6 +297,7 @@ strong {
 /**
  * Treat <u> like any other block element.
  */
+
 u {
   display: inline-block;
 }
@@ -357,16 +402,17 @@ input[type='submit'] {
   /**
      * Default button theme
      */
-  background-color: var(--chisel-primary);
-  border: 2px solid var(--chisel-primary);
+  background-color: var(--chisel-button-bg);
+  border: 2px solid var(--chisel-button-border);
   border-radius: 0.4rem;
-  color: var(--chisel-neutral-50);
+  color: var(--chisel-button-fg);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   height: 3em;
+  letter-spacing: 0.05em;
   padding: 0 1.5em;
   text-align: center;
   text-decoration: none;
@@ -378,11 +424,10 @@ input[type='submit'] {
   /**
      * Default button focus and hover states
      */
-  &:focus,
-  &:hover {
-    background-color: var(--chisel-neutral-500);
-    border-color: var(--chisel-neutral-500);
-    color: var(--chisel-neutral-50);
+  &:focus:not([disabled]),
+  &:hover:not([disabled]) {
+    --chisel-button-bg: var(--chisel-neutral-500);
+    --chisel-button-border: var(--chisel-neutral-500);
   }
 
   /**
@@ -391,34 +436,19 @@ input[type='submit'] {
   &[disabled] {
     cursor: default;
     opacity: 0.5;
-
-    &:focus,
-    &:hover {
-      background-color: var(--chisel-primary);
-      border-color: var(--chisel-primary);
-    }
   }
 
   /**
      * Outline button themes
      */
   &.button-outline {
-    background-color: transparent;
-    color: var(--chisel-primary);
+    --chisel-button-bg: transparent;
+    --chisel-button-fg: var(--chisel-primary);
 
-    &:focus,
-    &:hover {
-      background-color: transparent;
-      border-color: var(--chisel-neutral-500);
-      color: var(--chisel-neutral-500);
-    }
-
-    &[disabled] {
-      &:focus,
-      &:hover {
-        border-color: inherit;
-        color: var(--chisel-primary);
-      }
+    &:focus:not([disabled]),
+    &:hover:not([disabled]) {
+      --chisel-button-border: var(--chisel-neutral-500);
+      --chisel-button-fg: var(--chisel-neutral-50);
     }
   }
 
@@ -426,22 +456,15 @@ input[type='submit'] {
      * Clear button styles
      */
   &.button-clear {
-    background-color: transparent;
-    border-color: transparent;
-    color: var(--chisel-primary);
+    --chisel-button-bg: transparent;
+    --chisel-button-border: transparent;
+    --chisel-button-fg: var(--chisel-primary);
 
-    &:focus,
-    &:hover {
-      background-color: transparent;
-      border-color: transparent;
-      color: var(--chisel-neutral-500);
-    }
-
-    &[disabled] {
-      &:focus,
-      &:hover {
-        color: var(--chisel-primary);
-      }
+    &:focus:not([disabled]),
+    &:hover:not([disabled]) {
+      --chisel-button-bg: transparent;
+      --chisel-button-border: transparent;
+      --chisel-button-fg: var(--chisel-neutral-500);
     }
   }
 }
@@ -463,14 +486,14 @@ pre {
 }
 
 /**
- * 1. Apply background color neutral-200 (theme).
+ * 1. Apply background color code-bg (theme).
  * 2. Add rounded corners (theme).
  * 3. Add default margin and padding (theme).
  * 4. Don't wrap inline code blocks (use pre > wrap for multiline blocks)
  */
 
 code {
-  background: var(--chisel-neutral-200); /* 1 */
+  background: var(--chisel-code-bg); /* 1 */
   border-radius: 0.4rem; /* 2 */
   margin: 0 0.2rem; /* 3 */
   padding: 0.2rem 0.5rem; /* 3 */
@@ -478,14 +501,14 @@ code {
 }
 
 /**
- * 1. Style pre blocks with neutral-200 background (theme).
- * 2. Use primary color for left border (theme).
+ * 1. Style pre blocks with code-bg background (theme).
+ * 2. Style the left border with code-border (theme).
  * 3. Disable scrolling in pre (opinionated).
  * 4. Improve whitespace and line breaks on all browsers.
  */
 pre {
-  background: var(--chisel-neutral-200); /* 1 */
-  border-left: 3px solid var(--chisel-primary); /* 2 */
+  background: var(--chisel-code-bg); /* 1 */
+  border-left: 3px solid var(--chisel-code-border); /* 2 */
   overflow-y: hidden; /* 3 */
   white-space: normal; /* 4 */
 
@@ -502,12 +525,12 @@ pre {
  * ========================================================================== */
 
 /**
- * 1. Style as a 1px horizontal rule in color neutral-300 (theme).
+ * 1. Style as a 1px horizontal rule in color divider-bg (theme).
  * 2. Add a default top & bottom margin (opinionated).
  */
 hr {
   border: 0;
-  border-top: 1px solid var(--chisel-neutral-300);
+  border-top: 1px solid var(--chisel-divider-bg);
   margin: 3rem 0;
 }
 
@@ -535,8 +558,8 @@ textarea,
 select {
   -webkit-appearance: none;
   background-color: transparent;
-  border: 1px solid var(--chisel-neutral-300);
-  color: inherit;
+  border: 1px solid var(--chisel-input-border);
+  color: var(--chisel-input-fg);
   border-radius: 0.4rem;
   box-shadow: none;
   box-sizing: inherit;
@@ -549,7 +572,7 @@ select {
   margin: 0;
 
   &:focus {
-    border-color: var(--chisel-primary);
+    --chisel-input-border: var(--chisel-primary);
   }
 }
 
@@ -709,14 +732,20 @@ svg:not([fill]) {
  * ========================================================================== */
 
 /**
- * Color links as primary by default, neutral-700 when hovered or focused (theme).
+ * 1. Color all links with link-fg (theme).
+ * 2. Underline all links by default (opinionated).
+ * 3. Ensure the pointer cursor is shown for all links (opinionated).
+ * 4. Animate color change (theme).
  */
 a {
-  color: var(--chisel-primary);
+  color: var(--chisel-link-fg); /* 1 */
+  text-decoration: underline; /* 2 */
+  cursor: pointer; /* 3 */
+  transition: color 150ms; /* 4 */
 
   &:focus,
   &:hover {
-    color: var(--chisel-neutral-700);
+    --chisel-link-fg: var(--chisel-neutral-700);
   }
 }
 
@@ -807,12 +836,12 @@ table {
 }
 
 /**
- * 1. Add a bottom border with neutral-200 (theme).
+ * 1. Add a bottom border with table-divider (theme).
  * 2. Add padding around every cell.
  */
 td,
 th {
-  border-bottom: 1px solid var(--chisel-neutral-200); /* 1 */
+  border-bottom: 1px solid var(--chisel-table-divider); /* 1 */
   padding: 1.2rem 1.5rem; /* 2 */
 
   &:first-child {
@@ -832,9 +861,9 @@ th {
  */
 
 dialog {
-  background-color: var(--chisel-neutral-50);
-  border: solid;
-  color: var(--chisel-neutral-900);
+  background-color: var(--chisel-dialog-bg);
+  border: 1px solid var(--chisel-dialog-border);
+  color: var(--chisel-dialog-fg);
   display: block;
   height: -moz-fit-content;
   height: -webkit-fit-content;
@@ -852,6 +881,7 @@ dialog {
 dialog:not([open]) {
   display: none;
 }
+
 /*
  * Add the correct display in Safari.
  */
