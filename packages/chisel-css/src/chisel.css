@@ -21,6 +21,7 @@
   --chisel-h3: 1.953rem;
   --chisel-h4: 1.563rem;
   --chisel-h5: 1.25rem;
+  --chisel-p: 1rem;
   --chisel-h6: 0.8rem;
 
   /* container variables */
@@ -90,11 +91,32 @@
 }
 
 /**
- * Handle elements that are visually hidden but not hidden from ARIA.
+ * Handle hiding and showing elements that are meant only for screen readers.
  */
 
-[aria-hidden='false'][hidden] {
-  display: initial;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+
+  /**
+   * Visually show the element when focused.
+   */
+  &.sr-only-focusable:focus {
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
 }
 
 /**
@@ -133,22 +155,32 @@
 }
 
 /**
+ * Add a margin between all elements 
+ */
+
+* + * {
+  margin-top: 1em;
+}
+
+/**
  * 1. Use the default cursor in all browsers (opinionated).
  * 2. Change the line height in all browsers (opinionated).
- * 3. Breaks words to prevent overflow in all browsers (opinionated).
- * 4. Use a 4-space tab width in all browsers (opinionated).
- * 5. Remove the grey highlight on links in iOS (opinionated).
- * 6. Prevent adjustments of font size after orientation changes in iOS.
+ * 3. Use smooth scrolling (opinionated).
+ * 4. Breaks words to prevent overflow in all browsers (opinionated).
+ * 5. Use a 4-space tab width in all browsers (opinionated).
+ * 6. Remove the grey highlight on links in iOS (opinionated).
+ * 7. Prevent adjustments of font size after orientation changes in iOS.
  */
 
 :root {
   cursor: default; /* 1 */
   line-height: 1.75; /* 2 */
-  overflow-wrap: break-word; /* 3 */
-  -moz-tab-size: 4; /* 4 */
-  tab-size: 4; /* 4 */
-  -webkit-tap-highlight-color: transparent; /* 5 */
-  -webkit-text-size-adjust: 100%; /* 6 */
+  scroll-behavior: smooth; /* 3 */
+  overflow-wrap: break-word; /* 4 */
+  -moz-tab-size: 4; /* 5 */
+  tab-size: 4; /* 5 */
+  -webkit-tap-highlight-color: transparent; /* 6 */
+  -webkit-text-size-adjust: 100%; /* 7 */
 }
 
 /**
@@ -156,7 +188,9 @@
  * 2. Remove the margin in all browsers (opinionated).
  * 3. Set background to neutral-50 (theme).
  * 4. Set text color to neutral-900 (theme).
- * 5. Improve consistency of fonts in all browsers (opinionated).
+ * 5. Set font size to chisel-p (theme).
+ * 6. Improve consistency of fonts in all browsers (opinionated).
+ * 7. Use font smoothing on all supported browsers (opinionated).
  */
 body {
   block-size: -moz-available; /* 1 */
@@ -165,10 +199,13 @@ body {
   margin: 0; /* 2 */
   background: var(--chisel-neutral-50); /* 3 */
   color: var(--chisel-neutral-900); /* 4 */
+  font-size: var(--chisel-p); /* 5 */
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; /* 5 */
-  font-weight: 400; /* 5 */
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; /* 6 */
+  font-weight: 400; /* 6 */
+  -webkit-font-smoothing: antialiased; /* 7 */
+  -moz-osx-font-smoothing: grayscale; /* 7 */
 }
 
 .container {
@@ -211,6 +248,13 @@ body {
 b,
 strong {
   font-weight: bold;
+}
+
+/**
+ * Treat <u> like any other block element.
+ */
+u {
+  display: inline-block;
 }
 
 /**
@@ -318,17 +362,18 @@ input[type='submit'] {
   border-radius: 0.4rem;
   color: var(--chisel-neutral-50);
   cursor: pointer;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 700;
-  height: 3rem;
-  line-height: 3rem;
-  letter-spacing: 0.05em;
-  padding: 0 3rem;
+  height: 3em;
+  padding: 0 1.5em;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   white-space: nowrap;
   -webkit-appearance: button;
+  transition: color 150ms, background-color 150ms, border-color 150ms;
 
   /**
      * Default button focus and hover states
@@ -647,7 +692,8 @@ iframe {
 /**
  * Limit images to their parent's width.
  */
-img {
+img,
+svg {
   max-width: 100%;
 }
 
@@ -687,7 +733,7 @@ dl,
 ol,
 ul {
   list-style: none; /* 1 */
-  margin-top: 0; /* 2 */
+  margin-left: 0; /* 2 */
   padding-left: 0; /* 2 */
 
   & dl,
@@ -714,6 +760,13 @@ ul {
   list-style: circle inside;
 }
 
+/**
+ * Remove vertical spacing.
+ */
+li {
+  margin-top: 0;
+}
+
 /* Progress
  * ========================================================================== */
 
@@ -723,36 +776,6 @@ ul {
 
 progress {
   vertical-align: baseline;
-}
-
-/* Element Spacing
- * ========================================================================== */
-
-.button,
-button,
-dd,
-dt,
-li {
-  margin-bottom: 1rem;
-}
-
-fieldset,
-input,
-select,
-textarea {
-  margin-bottom: 1.5rem;
-}
-
-blockquote,
-dl,
-figure,
-form,
-ol,
-p,
-pre,
-table,
-ul {
-  margin-bottom: 2.5rem;
 }
 
 /* Tables
