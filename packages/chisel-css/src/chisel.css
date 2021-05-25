@@ -27,9 +27,9 @@
   --chisel-code-border: var(--chisel-primary);
 
   /* dialog colors */
-  --chisel-dialog-bg: var(--color-neutral-50);
-  --chisel-dialog-border: var(--color-dialog-bg);
-  --chisel-dialog-fg: var(--color-neutral-900);
+  --chisel-dialog-bg: var(--chisel-neutral-50);
+  --chisel-dialog-border: var(--chisel-dialog-bg);
+  --chisel-dialog-fg: var(--chisel-neutral-900);
 
   /* divider colors */
   --chisel-divider-bg: var(--chisel-neutral-300);
