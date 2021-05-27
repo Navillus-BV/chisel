@@ -11,6 +11,11 @@ body {
   z-index: 10;
 }
 
+.header,
+.header * {
+  margin-top: 0;
+}
+
 .header a {
   color: inherit;
 }
