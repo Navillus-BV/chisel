@@ -40,7 +40,7 @@
   --chisel-input-border: var(--chisel-input-bg);
 
   /* link colors */
-  --chisel-link-fg: var(--chisel-primary);
+  --chisel-link-fg: var(--chisel-link);
 
   /* table colors */
   --chisel-table-divider: var(--chisel-neutral-200);
