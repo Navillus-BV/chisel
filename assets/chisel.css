@@ -1,0 +1,918 @@
+/*! chisel v0.4.0 | MIT License | https://github.com/Navillus-BV/chisel */
+
+/* Chisel Variables
+ * ========================================================================== */
+
+:root {
+  /* Color variables */
+  --chisel-primary: #325476;
+  --chisel-neutral-50: #f9fafb;
+  --chisel-neutral-200: #e5e7eb;
+  --chisel-neutral-300: #d1d5db;
+  --chisel-neutral-500: #6b7280;
+  --chisel-neutral-700: #374151;
+  --chisel-neutral-900: #111827;
+
+  /* button colors */
+  --chisel-button-bg: var(--chisel-primary);
+  --chisel-button-border: var(--chisel-primary);
+  --chisel-button-fg: var(--chisel-neutral-50);
+
+  /* code colors */
+  --chisel-code-bg: var(--chisel-neutral-200);
+  --chisel-code-border: var(--chisel-primary);
+
+  /* dialog colors */
+  --chisel-dialog-bg: var(--chisel-neutral-50);
+  --chisel-dialog-border: var(--chisel-dialog-bg);
+  --chisel-dialog-fg: var(--chisel-neutral-900);
+
+  /* divider colors */
+  --chisel-divider-bg: var(--chisel-neutral-300);
+
+  /* input colors */
+  --chisel-input-bg: var(--chisel-neutral-300);
+  --chisel-input-fg: var(--chisel-neutral-900);
+  --chisel-input-border: var(--chisel-input-bg);
+
+  /* link colors */
+  --chisel-link-fg: var(--chisel-primary);
+
+  /* table colors */
+  --chisel-table-divider: var(--chisel-neutral-200);
+
+  /* font-size variables */
+  --chisel-h1: 3.052rem;
+  --chisel-h2: 2.441rem;
+  --chisel-h3: 1.953rem;
+  --chisel-h4: 1.563rem;
+  --chisel-h5: 1.25rem;
+  --chisel-p: 1rem;
+  --chisel-h6: 0.8rem
+
+  /* dark theme via HTML dataset */
+}
+
+:root[data-chisel-theme='dark'] {
+    --chisel-primary: #86a8cb;
+    --chisel-neutral-50: #111827;
+    --chisel-neutral-200: #374151;
+    --chisel-neutral-300: #6b7280;
+    --chisel-neutral-500: #6b7280;
+    --chisel-neutral-700: #e5e7eb;
+    --chisel-neutral-900: #f9fafb
+  }
+
+:root[data-chisel-theme='dark'] select:focus {
+      /* TODO: Find a way to use CSS variables for the down arrow */
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%2386a8cb" d="M0,0l6,8l6-8"/></svg>');
+    }
+
+:root {
+
+  /* dark theme via native prefers-color-scheme */
+}
+
+/* Accessibility
+ * ========================================================================== */
+
+/**
+ * Show a busy cursor.
+ */
+
+[aria-busy='true'] {
+  cursor: progress;
+}
+
+/**
+ * Ensure a pointer is used.
+ */
+
+[aria-controls] {
+  cursor: pointer;
+}
+
+/**
+ * Block cursors on disabled elements.
+ */
+
+[aria-disabled='true'],
+[disabled] {
+  cursor: not-allowed;
+}
+
+/**
+ * Handle hiding and showing elements that are meant only for screen readers.
+ */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0
+
+  /**
+   * Visually show the element when focused.
+   */
+}
+
+.sr-only.sr-only-focusable:focus {
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+/**
+ * Visually hide screen reader-only elements that aren't focused.
+ */
+
+[aria-hidden='false'][hidden]:not(:focus) {
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
+/* Document
+ * ========================================================================== */
+
+/**
+ * 1. Add border box sizing in all browsers (opinionated).
+ * 2. Backgrounds do not repeat by default (opinionated).
+ */
+
+*,
+::before,
+::after {
+  box-sizing: border-box; /* 1 */
+  background-repeat: no-repeat; /* 2 */
+}
+
+/**
+ * 1. Add text decoration inheritance in all browsers (opinionated).
+ * 2. Add vertical alignment inheritance in all browsers (opinionated).
+ */
+
+::before,
+::after {
+  text-decoration: inherit; /* 1 */
+  vertical-align: inherit; /* 2 */
+}
+
+/**
+ * Add a margin between all elements 
+ */
+
+* + * {
+  margin-top: 1em;
+}
+
+/**
+ * 1. Use the default cursor in all browsers (opinionated).
+ * 2. Change the line height in all browsers (opinionated).
+ * 3. Use smooth scrolling (opinionated).
+ * 4. Breaks words to prevent overflow in all browsers (opinionated).
+ * 5. Use a 4-space tab width in all browsers (opinionated).
+ * 6. Remove the grey highlight on links in iOS (opinionated).
+ * 7. Prevent adjustments of font size after orientation changes in iOS.
+ * 8. Scale font-size for responsive screens (opinionated).
+ */
+
+:root {
+  cursor: default; /* 1 */
+  line-height: 1.75; /* 2 */
+  scroll-behavior: smooth; /* 3 */
+  overflow-wrap: break-word; /* 4 */
+  -moz-tab-size: 4; /* 5 */
+  -o-tab-size: 4;
+     tab-size: 4; /* 5 */
+  -webkit-tap-highlight-color: transparent; /* 6 */
+  -webkit-text-size-adjust: 100%; /* 7 */
+  font-size: 14px /* 8 */
+}
+
+/**
+ * 1. Fill the viewport block in all browsers (opinionated).
+ * 2. Remove the margin in all browsers (opinionated).
+ * 3. Set background to neutral-50 (theme).
+ * 4. Set text color to neutral-900 (theme).
+ * 5. Set font size to chisel-p (theme).
+ * 6. Improve consistency of fonts in all browsers (opinionated).
+ * 7. Use font smoothing on all supported browsers (opinionated).
+ */
+
+body {
+  block-size: -moz-available; /* 1 */
+  block-size: -webkit-fill-available; /* 1 */
+  block-size: stretch; /* 1 */
+  margin: 0; /* 2 */
+  background: #f9fafb;
+  background: var(--chisel-neutral-50); /* 3 */
+  color: #111827;
+  color: var(--chisel-neutral-900); /* 4 */
+  font-size: 1rem;
+  font-size: var(--chisel-p); /* 5 */
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; /* 6 */
+  font-weight: 400; /* 6 */
+  -webkit-font-smoothing: antialiased; /* 7 */
+  -moz-osx-font-smoothing: grayscale; /* 7 */
+}
+
+/* Reduced Motion
+ * ========================================================================
+  
+ /**
+  * 1. Remove animations when motion is reduced (opinionated).
+  * 2. Remove fixed background attachments when motion is reduced (opinionated).
+  * 3. Remove timed scrolling behaviors when motion is reduced (opinionated).
+  * 4. Remove transitions when motion is reduced (opinionated).
+  */
+
+/* Typography
+ * ========================================================================== */
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Treat <u> like any other block element.
+ */
+
+u {
+  display: inline-block;
+}
+
+/**
+ * Add the correct text decoration in Safari.
+ */
+
+abbr[title] {
+  text-decoration: underline;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+}
+
+/**
+ * Default to the Major Third type scale (opinionated).
+ * See https://type-scale.com/ for details.
+ */
+
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 3rem 0 1.38rem;
+  font-weight: 400;
+  line-height: 1.3
+
+  /**
+   * Remove the top margin for any header that is the first child element.
+   */
+}
+
+h1:not(* + *), h2:not(* + *), h3:not(* + *), h4:not(* + *), h5:not(* + *), h6:not(* + *) {
+    margin-top: 0;
+  }
+
+h1,
+.h1 {
+  margin-top: 0;
+  font-size: 3.052rem;
+  font-size: var(--chisel-h1);
+}
+
+h2,
+.h2 {
+  font-size: 2.441rem;
+  font-size: var(--chisel-h2);
+}
+
+h3,
+.h3 {
+  font-size: 1.953rem;
+  font-size: var(--chisel-h3);
+}
+
+h4,
+.h4 {
+  font-size: 1.563rem;
+  font-size: var(--chisel-h4);
+}
+
+h5,
+.h5 {
+  font-size: 1.25rem;
+  font-size: var(--chisel-h5);
+}
+
+h6,
+small,
+.h6 {
+  font-size: 0.8rem;
+  font-size: var(--chisel-h6);
+  letter-spacing: 0.05em;
+}
+
+/* Blockquotes
+ * ========================================================================== */
+
+/**
+ * 1. Add a left border with neutral-300 (theme).
+ * 2. Reset whitespace.
+ */
+
+blockquote {
+  border-left: 3px solid #d1d5db;
+  border-left: 3px solid var(--chisel-neutral-300); /* 1 */
+  margin-left: 0; /* 2 */
+  margin-right: 0; /* 2 */
+  padding: 1em 1.5em /* 2 */
+}
+
+blockquote *:last-child {
+    margin-bottom: 0; /* 2 */
+  }
+
+/* Buttons
+ * ========================================================================== */
+
+.button,
+button,
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+  /**
+     * Default button theme
+     */
+  background-color: #325476;
+  background-color: var(--chisel-button-bg);
+  border: 2px solid #325476;
+  border: 2px solid var(--chisel-button-border);
+  border-radius: 0.4rem;
+  color: #f9fafb;
+  color: var(--chisel-button-fg);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  height: 3em;
+  letter-spacing: 0.05em;
+  padding: 0 1.5em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  -webkit-appearance: button;
+  transition: color 150ms, background-color 150ms, border-color 150ms
+
+  /**
+     * Default button focus and hover states
+     */
+}
+
+.button:focus:not([disabled]),
+  .button:hover:not([disabled]),
+  button:focus:not([disabled]),
+  button:hover:not([disabled]),
+  input[type='button']:focus:not([disabled]),
+  input[type='button']:hover:not([disabled]),
+  input[type='reset']:focus:not([disabled]),
+  input[type='reset']:hover:not([disabled]),
+  input[type='submit']:focus:not([disabled]),
+  input[type='submit']:hover:not([disabled]) {
+    --chisel-button-bg: var(--chisel-neutral-500);
+    --chisel-button-border: var(--chisel-neutral-500);
+  }
+
+.button,
+button,
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+
+  /**
+     * Default button disabled state
+     */
+}
+
+.button[disabled], button[disabled], input[type='button'][disabled], input[type='reset'][disabled], input[type='submit'][disabled] {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+/* Code
+ * ========================================================================== */
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo,
+    monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+ * 1. Apply background color code-bg (theme).
+ * 2. Add rounded corners (theme).
+ * 3. Add default margin and padding (theme).
+ * 4. Don't wrap inline code blocks (use pre > wrap for multiline blocks)
+ */
+
+code {
+  background: #e5e7eb;
+  background: var(--chisel-code-bg); /* 1 */
+  border-radius: 0.4rem; /* 2 */
+  margin: 0 0.2rem; /* 3 */
+  padding: 0.2rem 0.5rem; /* 3 */
+  white-space: no-wrap; /* 4 */
+}
+
+/**
+ * 1. Style pre blocks with code-bg background (theme).
+ * 2. Style the left border with code-border (theme).
+ * 3. Disable scrolling in pre (opinionated).
+ * 4. Improve whitespace and line breaks on all browsers.
+ */
+
+pre {
+  background: #e5e7eb;
+  background: var(--chisel-code-bg); /* 1 */
+  border-left: 3px solid #325476;
+  border-left: 3px solid var(--chisel-code-border); /* 2 */
+  overflow-y: hidden; /* 3 */
+  white-space: normal /* 4 */
+}
+
+pre > code {
+    background: transparent; /* 1 */
+    border-radius: 0; /* 4 */
+    display: block; /* 4 */
+    padding: 1rem 1.5rem; /* 4 */
+    white-space: pre; /* 4 */
+  }
+
+/* Dividers
+ * ========================================================================== */
+
+/**
+ * 1. Style as a 1px horizontal rule in color divider-bg (theme).
+ * 2. Add a default top & bottom margin (opinionated).
+ */
+
+hr {
+  border: 0;
+  border-top: 1px solid #d1d5db;
+  border-top: 1px solid var(--chisel-divider-bg);
+  margin: 3rem 0;
+}
+
+/* Forms & Input
+ * ========================================================================== */
+
+/**
+ * Default styling for all default HTML input elements
+ */
+
+input[type='color'],
+input[type='date'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='email'],
+input[type='month'],
+input[type='number'],
+input[type='password'],
+input[type='search'],
+input[type='tel'],
+input[type='text'],
+input[type='url'],
+input[type='week'],
+input:not([type]),
+textarea,
+select {
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 1px solid #d1d5db;
+  border: 1px solid var(--chisel-input-border);
+  color: #111827;
+  color: var(--chisel-input-fg);
+  border-radius: 0.4rem;
+  box-shadow: none;
+  box-sizing: inherit;
+  height: 3rem;
+  padding: 0.6rem 1rem 0.7rem;
+  width: 100%;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0
+}
+
+input[type='color']:focus, input[type='date']:focus, input[type='datetime']:focus, input[type='datetime-local']:focus, input[type='email']:focus, input[type='month']:focus, input[type='number']:focus, input[type='password']:focus, input[type='search']:focus, input[type='tel']:focus, input[type='text']:focus, input[type='url']:focus, input[type='week']:focus, input:not([type]):focus, textarea:focus, select:focus {
+    --chisel-input-border: var(--chisel-primary);
+  }
+
+/**
+ * 1. Correct the odd appearance in Chrome, Edge, and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+input[type='search'] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Correct the text style of placeholders in Chrome, Edge, and Safari.
+ */
+
+::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+/**
+ * Remove the inner padding in Chrome, Edge, and Safari on macOS.
+ */
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style upload buttons in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+  */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/**
+ * Remove the additional ':invalid' styles in Firefox.
+ * See: https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737
+ */
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+/**
+ * Style select boxes with a border and arrow of primary color (theme).
+ */
+
+select {
+  /* TODO: Find a way to use CSS variables for the down arrow */
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%23d1d5db" d="M0,0l6,8l6-8"/></svg>')
+    center right no-repeat;
+  padding-right: 3rem;
+  text-transform: none
+}
+
+select:focus {
+    /* TODO: Find a way to use CSS variables for the down arrow */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%23325476" d="M0,0l6,8l6-8"/></svg>');
+  }
+
+select[multiple] {
+    background: none;
+    height: auto;
+  }
+
+/**
+ * 1. Set minimum height (opinionated).
+ * 2. Remove the margin in Firefox and Safari.
+ * 3. Change the resize direction in all browsers (opinionated).
+ */
+
+textarea {
+  min-height: 6.5rem; /* 1 */
+  margin: 0; /* 2 */
+  overflow: auto; /* 3 */
+  resize: vertical; /* 3 */
+  resize: block; /* 3 */
+}
+
+/**
+ * 1. Force bold font weight (opinionated).
+ * 2. Add a default bottom margin (opinionated).
+ */
+
+label,
+legend {
+  display: block; /* 2 */
+  font-weight: 700; /* 1 */
+  margin-bottom: 0.5rem /* 2 */
+
+  /**
+   * Label state for inline labels (opinionated).
+   */
+}
+
+label.label-inline, legend.label-inline {
+    display: inline-block;
+    font-weight: normal;
+    margin-left: 0.5rem;
+  }
+
+/**
+ * Remove border and padding
+ */
+
+fieldset {
+  border-width: 0;
+  padding: 0;
+}
+
+/**
+ * Default checkboxes and radio buttons to inline (opinionated).
+ */
+
+input[type='checkbox'],
+input[type='radio'] {
+  display: inline;
+}
+
+/* Iframes
+ * ========================================================================== */
+
+/**
+ * Remove the border on iframes in all browsers (opinionated).
+ */
+
+iframe {
+  border-style: none;
+}
+
+/* Images
+ * ========================================================================== */
+
+/**
+ * Limit images to their parent's width.
+ */
+
+img,
+svg {
+  max-width: 100%;
+}
+
+/**
+ * Change the fill color to match the text color in all browsers (opinionated).
+ */
+
+svg:not([fill]) {
+  fill: currentColor;
+}
+
+/* Links
+ * ========================================================================== */
+
+/**
+ * 1. Color all links with link-fg (theme).
+ * 2. Underline all links by default (opinionated).
+ * 3. Ensure the pointer cursor is shown for all links (opinionated).
+ * 4. Animate color change (theme).
+ */
+
+a {
+  color: #325476;
+  color: var(--chisel-link-fg); /* 1 */
+  text-decoration: underline; /* 2 */
+  cursor: pointer; /* 3 */
+  transition: color 150ms /* 4 */
+}
+
+a:focus,
+  a:hover {
+    --chisel-link-fg: var(--chisel-neutral-700);
+  }
+
+/* Lists
+ * ========================================================================== */
+
+/**
+ * 1. Remove list-style from all lists.
+ * 2. Remove all margin and padding from lists.
+ * 3. Shrink font 10% for nested lists.
+ * 4. Add spacing around nested lists.
+ */
+
+dl,
+ol,
+ul {
+  list-style: none; /* 1 */
+  margin-left: 0; /* 2 */
+  padding-left: 0 /* 2 */
+}
+
+dl dl,
+  dl ol,
+  dl ul,
+  ol dl,
+  ol ol,
+  ol ul,
+  ul dl,
+  ul ol,
+  ul ul {
+    font-size: 90%; /* 3 */
+    margin: 1.5rem 0 1.5rem 3rem; /* 4 */
+  }
+
+/**
+ * Use decimals for ordered list item delimiters.
+ */
+
+ol {
+  list-style: decimal inside;
+}
+
+/**
+ * Use hollow circles for unordered list item delimiters.
+ */
+
+ul {
+  list-style: circle inside;
+}
+
+/**
+ * Remove vertical spacing.
+ */
+
+li {
+  margin-top: 0;
+}
+
+/* Progress
+ * ========================================================================== */
+
+/**
+ * Add the correct vertical alignment in Chrome, Edge, and Firefox.
+ */
+
+progress {
+  vertical-align: baseline;
+}
+
+/* Tables
+ * ========================================================================== */
+
+/**
+ * 1. Collapse border spacing in all browsers (opinionated).
+ * 2. Correct table border color inheritance in all Chrome, Edge, and Safari.
+ * 3. Allow horizontal scrolling.
+ * 4. Align table text  to the left.
+ * 5. Remove text indentation from table contents in Chrome, Edge, and Safari.
+ * 6. On screens larger than phones, remove horizontal scrolling.
+ */
+
+table {
+  border-spacing: 0; /* 1 */
+  border-color: inherit; /* 2 */
+  display: block; /* 3 */
+  overflow-x: auto; /* 3 */
+  text-align: left; /* 4 */
+  text-indent: 0; /* 5 */
+  width: 100% /* 3 */
+}
+
+/**
+ * 1. Add a bottom border with table-divider (theme).
+ * 2. Add padding around every cell.
+ */
+
+td,
+th {
+  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid var(--chisel-table-divider); /* 1 */
+  padding: 1.2rem 1.5rem /* 2 */
+}
+
+td:first-child, th:first-child {
+    padding-left: 0; /* 2 */
+  }
+
+td:last-child, th:last-child {
+    padding-right: 0; /* 2 */
+  }
+
+/* Dialogs
+ * ========================================================================== */
+
+/*
+ * Add the correct styles in Safari.
+ */
+
+dialog {
+  background-color: #f9fafb;
+  background-color: var(--chisel-dialog-bg);
+  border: 1px solid #f9fafb;
+  border: 1px solid var(--chisel-dialog-border);
+  color: #111827;
+  color: var(--chisel-dialog-fg);
+  display: block;
+  height: -moz-fit-content;
+  height: -webkit-fit-content;
+  height: fit-content;
+  left: 0;
+  margin: auto;
+  padding: 1em;
+  position: absolute;
+  right: 0;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;
+}
+
+dialog:not([open]) {
+  display: none;
+}
+
+/*
+ * Add the correct display in Safari.
+ */
+
+summary {
+  display: list-item;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+      --chisel-primary: #86a8cb;
+      --chisel-neutral-50: #111827;
+      --chisel-neutral-200: #374151;
+      --chisel-neutral-300: #6b7280;
+      --chisel-neutral-500: #6b7280;
+      --chisel-neutral-700: #e5e7eb;
+      --chisel-neutral-900: #f9fafb;
+    }
+
+    :root select:focus {
+      /* TODO: Find a way to use CSS variables for the down arrow */
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%2386a8cb" d="M0,0l6,8l6-8"/></svg>');
+    }
+}
+
+@media (min-width: 375px) {
+    :root {
+      font-size: 16px; /* 8 */
+    }
+}
+
+@media (min-width: 1280px) {
+    :root {
+      font-size: 18px; /* 8 */
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    -webkit-animation-delay: -1ms !important;
+            animation-delay: -1ms !important; /* 1 */
+    -webkit-animation-duration: 1ms !important;
+            animation-duration: 1ms !important; /* 1 */
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important; /* 1 */
+    background-attachment: initial !important; /* 2 */
+    scroll-behavior: auto !important; /* 3 */
+    transition-delay: 0s !important; /* 4 */
+    transition-duration: 0s !important; /* 4 */
+  }
+}
+
+@media (min-width: 672px) {
+    table {
+      display: table; /* 6 */
+      overflow-x: initial; /* 6 */
+    }
+}
