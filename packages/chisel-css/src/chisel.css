@@ -15,7 +15,6 @@
   --chisel-neutral-500: #6b7280;
   --chisel-neutral-700: #374151;
   --chisel-neutral-900: #111827;
-  --chisel-link: #0b70ba;
 
   /* button colors */
   --chisel-button-bg: var(--chisel-primary);
@@ -40,7 +39,7 @@
   --chisel-input-border: var(--chisel-input-bg);
 
   /* link colors */
-  --chisel-link-fg: var(--chisel-link);
+  --chisel-link-fg: var(--chisel-primary);
 
   /* table colors */
   --chisel-table-divider: var(--chisel-neutral-200);
@@ -53,9 +52,6 @@
   --chisel-h5: 1.25rem;
   --chisel-p: 1rem;
   --chisel-h6: 0.8rem;
-
-  /* container variables */
-  --chisel-container-max-w: 90rem;
 
   /* dark theme via HTML dataset */
   &[data-chisel-theme='dark'] {
@@ -252,12 +248,6 @@ body {
   -moz-osx-font-smoothing: grayscale; /* 7 */
 }
 
-.container {
-  width: 90vw;
-  max-width: var(--chisel-container-max-w);
-  margin: 0 auto;
-}
-
 /* Reduced Motion
  * ========================================================================
   
@@ -436,36 +426,6 @@ input[type='submit'] {
   &[disabled] {
     cursor: default;
     opacity: 0.5;
-  }
-
-  /**
-     * Outline button themes
-     */
-  &.button-outline {
-    --chisel-button-bg: transparent;
-    --chisel-button-fg: var(--chisel-primary);
-
-    &:focus:not([disabled]),
-    &:hover:not([disabled]) {
-      --chisel-button-border: var(--chisel-neutral-500);
-      --chisel-button-fg: var(--chisel-neutral-50);
-    }
-  }
-
-  /**
-     * Clear button styles
-     */
-  &.button-clear {
-    --chisel-button-bg: transparent;
-    --chisel-button-border: transparent;
-    --chisel-button-fg: var(--chisel-primary);
-
-    &:focus:not([disabled]),
-    &:hover:not([disabled]) {
-      --chisel-button-bg: transparent;
-      --chisel-button-border: transparent;
-      --chisel-button-fg: var(--chisel-neutral-500);
-    }
   }
 }
 
@@ -668,6 +628,16 @@ legend {
   display: block; /* 2 */
   font-weight: 700; /* 1 */
   margin-bottom: 0.5rem; /* 2 */
+
+  /**
+   * Label state for inline labels (opinionated).
+   */
+
+  &.label-inline {
+    display: inline-block;
+    font-weight: normal;
+    margin-left: 0.5rem;
+  }
 }
 
 /**
@@ -686,16 +656,6 @@ fieldset {
 input[type='checkbox'],
 input[type='radio'] {
   display: inline;
-}
-
-/**
- * Label state for inline labels (opinionated).
- */
-
-.label-inline {
-  display: inline-block;
-  font-weight: normal;
-  margin-left: 0.5rem;
 }
 
 /* Iframes
