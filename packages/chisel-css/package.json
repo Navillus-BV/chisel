@@ -16,7 +16,8 @@
     "start": "run-p start:*",
     "start:dev": "NODE_ENV=development postcss src/chisel.css -o dist/chisel.css -w",
     "start:prod": "NODE_ENV=production postcss src/chisel.css -o dist/chisel.min.css -w",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "run-p build"
   },
   "repository": {
     "type": "git",
