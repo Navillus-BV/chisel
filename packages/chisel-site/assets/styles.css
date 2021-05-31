@@ -2,6 +2,12 @@ body {
   font-family: Poppins, sans-serif;
 }
 
+.container {
+  width: 90vw;
+  max-width: 90rem;
+  margin: 0 auto;
+}
+
 .header {
   padding: 1rem 0;
   position: sticky;
