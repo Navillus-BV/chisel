@@ -1,4 +1,4 @@
-/*! chisel v0.4.1 | MIT License | https://github.com/Navillus-BV/chisel */
+/*! chisel v0.5.1 | MIT License | https://github.com/Navillus-BV/chisel */
 
 /* Chisel Variables
  * ========================================================================== */
@@ -6,40 +6,13 @@
 :root {
   /* Color variables */
   --chisel-primary: #325476;
+  --chisel-secondary: #0b70ba;
   --chisel-neutral-50: #f9fafb;
   --chisel-neutral-200: #e5e7eb;
   --chisel-neutral-300: #d1d5db;
   --chisel-neutral-500: #6b7280;
   --chisel-neutral-700: #374151;
   --chisel-neutral-900: #111827;
-
-  /* button colors */
-  --chisel-button-bg: var(--chisel-primary);
-  --chisel-button-border: var(--chisel-primary);
-  --chisel-button-fg: var(--chisel-neutral-50);
-
-  /* code colors */
-  --chisel-code-bg: var(--chisel-neutral-200);
-  --chisel-code-border: var(--chisel-primary);
-
-  /* dialog colors */
-  --chisel-dialog-bg: var(--chisel-neutral-50);
-  --chisel-dialog-border: var(--chisel-dialog-bg);
-  --chisel-dialog-fg: var(--chisel-neutral-900);
-
-  /* divider colors */
-  --chisel-divider-bg: var(--chisel-neutral-300);
-
-  /* input colors */
-  --chisel-input-bg: var(--chisel-neutral-300);
-  --chisel-input-fg: var(--chisel-neutral-900);
-  --chisel-input-border: var(--chisel-input-bg);
-
-  /* link colors */
-  --chisel-link-fg: var(--chisel-primary);
-
-  /* table colors */
-  --chisel-table-divider: var(--chisel-neutral-200);
 
   /* font-size variables */
   --chisel-h1: 3.052rem;
@@ -54,7 +27,8 @@
 }
 
 :root[data-chisel-theme='dark'] {
-    --chisel-primary: #86a8cb;
+    --chisel-primary: #002244;
+    --chisel-secondary: #3ea8f4;
     --chisel-neutral-50: #111827;
     --chisel-neutral-200: #374151;
     --chisel-neutral-300: #6b7280;
@@ -367,12 +341,12 @@ input[type='submit'] {
      * Default button theme
      */
   background-color: #325476;
-  background-color: var(--chisel-button-bg);
+  background-color: var(--chisel-primary);
   border: 2px solid #325476;
-  border: 2px solid var(--chisel-button-border);
+  border: 2px solid var(--chisel-primary);
   border-radius: 0.4rem;
   color: #f9fafb;
-  color: var(--chisel-button-fg);
+  color: var(--chisel-neutral-50);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -393,18 +367,20 @@ input[type='submit'] {
      */
 }
 
-.button:focus:not([disabled]),
-  .button:hover:not([disabled]),
-  button:focus:not([disabled]),
-  button:hover:not([disabled]),
-  input[type='button']:focus:not([disabled]),
-  input[type='button']:hover:not([disabled]),
-  input[type='reset']:focus:not([disabled]),
-  input[type='reset']:hover:not([disabled]),
-  input[type='submit']:focus:not([disabled]),
-  input[type='submit']:hover:not([disabled]) {
-    --chisel-button-bg: var(--chisel-neutral-500);
-    --chisel-button-border: var(--chisel-neutral-500);
+.button:focus,
+  .button:hover,
+  button:focus,
+  button:hover,
+  input[type='button']:focus,
+  input[type='button']:hover,
+  input[type='reset']:focus,
+  input[type='reset']:hover,
+  input[type='submit']:focus,
+  input[type='submit']:hover {
+    background-color: #6b7280;
+    background-color: var(--chisel-neutral-500);
+    border-color: #6b7280;
+    border-color: var(--chisel-neutral-500);
   }
 
 .button,
@@ -429,6 +405,7 @@ input[type='submit'] {
 /**
  * 1. Correct the inheritance and scaling of font size in all browsers.
  * 2. Correct the odd `em` font sizing in all browsers.
+ * 3. Add rounded corners (theme).
  */
 
 code,
@@ -438,36 +415,35 @@ pre {
   font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo,
     monospace; /* 1 */
   font-size: 1em; /* 2 */
+  border-radius: 0.4rem; /* 3 */
 }
 
 /**
- * 1. Apply background color code-bg (theme).
- * 2. Add rounded corners (theme).
- * 3. Add default margin and padding (theme).
- * 4. Don't wrap inline code blocks (use pre > wrap for multiline blocks)
+ * 1. Apply background color neutral-200 (theme).
+ * 2. Add default margin and padding (theme).
+ * 3. Don't wrap inline code blocks (use pre > wrap for multiline blocks)
  */
 
 code {
   background: #e5e7eb;
-  background: var(--chisel-code-bg); /* 1 */
-  border-radius: 0.4rem; /* 2 */
-  margin: 0 0.2rem; /* 3 */
-  padding: 0.2rem 0.5rem; /* 3 */
-  white-space: no-wrap; /* 4 */
+  background: var(--chisel-neutral-200); /* 1 */
+  margin: 0 0.2rem; /* 2 */
+  padding: 0.2rem 0.5rem; /* 2 */
+  white-space: no-wrap; /* 3 */
 }
 
 /**
- * 1. Style pre blocks with code-bg background (theme).
- * 2. Style the left border with code-border (theme).
+ * 1. Style pre blocks with neutral-200 background (theme).
+ * 2. Style the left border with primary color (theme).
  * 3. Disable scrolling in pre (opinionated).
  * 4. Improve whitespace and line breaks on all browsers.
  */
 
 pre {
   background: #e5e7eb;
-  background: var(--chisel-code-bg); /* 1 */
+  background: var(--chisel-neutral-200); /* 1 */
   border-left: 3px solid #325476;
-  border-left: 3px solid var(--chisel-code-border); /* 2 */
+  border-left: 3px solid var(--chisel-primary); /* 2 */
   overflow-y: hidden; /* 3 */
   white-space: normal /* 4 */
 }
@@ -484,14 +460,14 @@ pre > code {
  * ========================================================================== */
 
 /**
- * 1. Style as a 1px horizontal rule in color divider-bg (theme).
+ * 1. Style as a 1px horizontal rule in color neutral-300 (theme).
  * 2. Add a default top & bottom margin (opinionated).
  */
 
 hr {
   border: 0;
   border-top: 1px solid #d1d5db;
-  border-top: 1px solid var(--chisel-divider-bg);
+  border-top: 1px solid var(--chisel-neutral-300);
   margin: 3rem 0;
 }
 
@@ -521,9 +497,8 @@ select {
   -webkit-appearance: none;
   background-color: transparent;
   border: 1px solid #d1d5db;
-  border: 1px solid var(--chisel-input-border);
-  color: #111827;
-  color: var(--chisel-input-fg);
+  border: 1px solid var(--chisel-neutral-300);
+  color: inherit;
   border-radius: 0.4rem;
   box-shadow: none;
   box-sizing: inherit;
@@ -537,7 +512,8 @@ select {
 }
 
 input[type='color']:focus, input[type='date']:focus, input[type='datetime']:focus, input[type='datetime-local']:focus, input[type='email']:focus, input[type='month']:focus, input[type='number']:focus, input[type='password']:focus, input[type='search']:focus, input[type='tel']:focus, input[type='text']:focus, input[type='url']:focus, input[type='week']:focus, input:not([type]):focus, textarea:focus, select:focus {
-    --chisel-input-border: var(--chisel-primary);
+    border-color: #325476;
+    border-color: var(--chisel-primary);
   }
 
 /**
@@ -697,15 +673,15 @@ svg:not([fill]) {
  * ========================================================================== */
 
 /**
- * 1. Color all links with link-fg (theme).
+ * 1. Color all links with secondary color (theme).
  * 2. Underline all links by default (opinionated).
  * 3. Ensure the pointer cursor is shown for all links (opinionated).
  * 4. Animate color change (theme).
  */
 
 a {
-  color: #325476;
-  color: var(--chisel-link-fg); /* 1 */
+  color: #0b70ba;
+  color: var(--chisel-secondary); /* 1 */
   text-decoration: underline; /* 2 */
   cursor: pointer; /* 3 */
   transition: color 150ms /* 4 */
@@ -713,7 +689,8 @@ a {
 
 a:focus,
   a:hover {
-    --chisel-link-fg: var(--chisel-neutral-700);
+    color: #374151;
+    color: var(--chisel-neutral-700);
   }
 
 /* Lists
@@ -805,14 +782,14 @@ table {
 }
 
 /**
- * 1. Add a bottom border with table-divider (theme).
+ * 1. Add a bottom border with neutral-200 (theme).
  * 2. Add padding around every cell.
  */
 
 td,
 th {
   border-bottom: 1px solid #e5e7eb;
-  border-bottom: 1px solid var(--chisel-table-divider); /* 1 */
+  border-bottom: 1px solid var(--chisel-neutral-200); /* 1 */
   padding: 1.2rem 1.5rem /* 2 */
 }
 
@@ -833,11 +810,11 @@ td:last-child, th:last-child {
 
 dialog {
   background-color: #f9fafb;
-  background-color: var(--chisel-dialog-bg);
+  background-color: var(--chisel-neutral-50);
   border: 1px solid #f9fafb;
-  border: 1px solid var(--chisel-dialog-border);
+  border: 1px solid var(--chisel-neutral-50);
   color: #111827;
-  color: var(--chisel-dialog-fg);
+  color: var(--chisel-neutral-900);
   display: block;
   height: -moz-fit-content;
   height: -webkit-fit-content;
@@ -865,8 +842,9 @@ summary {
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
-      --chisel-primary: #86a8cb;
+    :root:not([data-chisel-theme]) {
+      --chisel-primary: #002244;
+      --chisel-secondary: #3ea8f4;
       --chisel-neutral-50: #111827;
       --chisel-neutral-200: #374151;
       --chisel-neutral-300: #6b7280;
@@ -875,7 +853,7 @@ summary {
       --chisel-neutral-900: #f9fafb;
     }
 
-    :root select:focus {
+    :root:not([data-chisel-theme]) select:focus {
       /* TODO: Find a way to use CSS variables for the down arrow */
       background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%2386a8cb" d="M0,0l6,8l6-8"/></svg>');
     }
