@@ -22,10 +22,6 @@ body {
   margin-top: 0;
 }
 
-.header a {
-  color: inherit;
-}
-
 .header .container {
   display: flex;
   align-items: center;
