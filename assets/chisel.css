@@ -1,4 +1,4 @@
-/*! chisel v0.5.1 | MIT License | https://github.com/Navillus-BV/chisel */
+/*! chisel v0.5.2 | MIT License | https://github.com/Navillus-BV/chisel */
 
 /* Chisel Variables
  * ========================================================================== */
@@ -77,18 +77,22 @@
 
 /**
  * Handle hiding and showing elements that are meant only for screen readers.
+ *
+ * 1. modern browsers, clip-path works inwards from each corner
+ * 2. added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space)
  */
 
 .sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
+  border: 0;
   padding: 0;
-  margin: -1px;
+  margin: 0;
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%); /* 1 */
+  white-space: nowrap /* 2 */
 
   /**
    * Visually show the element when focused.
@@ -101,7 +105,8 @@
     padding: 0;
     margin: 0;
     overflow: visible;
-    clip: auto;
+    -webkit-clip-path: initial;
+            clip-path: initial;
     white-space: normal;
   }
 
