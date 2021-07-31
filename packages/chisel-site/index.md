@@ -136,3 +136,22 @@ DOM heirarchy is important for both SEO and accessibility. Sometimes you just ne
 ```
 
 Add the `h4` class to your `<h1>` for the best of both worlds. Symantically your `<h1>` comes before the subheaders while visually the other headers are emphasized.
+
+## Prism Support
+
+Do you use [Prism](https://prismjs.com/) for syntax highlighting? We've got you covered!
+
+### Installed from NPM
+
+If you installed from NPM, just include `chisel.css/chisel-prism.css` (or `chisel-prism.min.css`). Depending on your build setup you may need to include the stylesheet directly from `chisel.css/dist/chisel-prism.min.css`.
+
+### Including from CDN
+
+Including chisel's Prism theme can also be handled from the CDN.
+
+```html
+<link
+  href="https://unpkg.com/chisel.css/chisel-prism.min.css"
+  rel="stylesheet"
+/>
+```
