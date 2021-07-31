@@ -6,18 +6,21 @@
   "files": [
     "dist/chisel.css",
     "dist/chisel.min.css",
+    "dist/chisel-prism.css",
+    "dist/chisel-prism.min.css",
     "example.html"
   ],
   "scripts": {
     "prebuild": "test \"$CI\" = true && npx pnpm install --store=node_modules/.pnpm-store || echo skipping pnpm install",
     "build": "run-p build:*",
-    "build:dev": "NODE_ENV=development postcss src/chisel.css -o dist/chisel.css",
-    "build:prod": "NODE_ENV=production postcss src/chisel.css -o dist/chisel.min.css",
+    "build:dev": "NODE_ENV=development postcss src/chisel.css -o dist/chisel.css && postcss src/chisel-prism.css -o dist/chisel-prism.css",
+    "build:prod": "NODE_ENV=production postcss src/chisel.css -o dist/chisel.min.css && postcss src/chisel-prism.css -o dist/chisel-prism.min.css",
     "start": "run-p start:*",
     "start:dev": "NODE_ENV=development postcss src/chisel.css -o dist/chisel.css -w",
     "start:prod": "NODE_ENV=production postcss src/chisel.css -o dist/chisel.min.css -w",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "run-p build"
+    "prepublish": "run-p build",
+    "testing": "NODE_ENV=development postcss src/*.css -o dist"
   },
   "repository": {
     "type": "git",
