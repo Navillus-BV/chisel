@@ -1,6 +1,6 @@
 {
   "name": "chisel.css",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "A minimalist CSS framework.",
   "main": "dist/chisel.min.css",
   "files": [
@@ -13,8 +13,8 @@
   "scripts": {
     "prebuild": "test \"$CI\" = true && npx pnpm install --store=node_modules/.pnpm-store || echo skipping pnpm install",
     "build": "run-p build:*",
-    "build:dev": "NODE_ENV=development postcss src/chisel.css -o dist/chisel.css && postcss src/chisel-prism.css -o dist/chisel-prism.css",
-    "build:prod": "NODE_ENV=production postcss src/chisel.css -o dist/chisel.min.css && postcss src/chisel-prism.css -o dist/chisel-prism.min.css",
+    "build:dev": "NODE_ENV=development postcss src/chisel.css -o dist/chisel.css && NODE_ENV=development postcss src/chisel-prism.css -o dist/chisel-prism.css",
+    "build:prod": "NODE_ENV=production postcss src/chisel.css -o dist/chisel.min.css && NODE_ENV=production postcss src/chisel-prism.css -o dist/chisel-prism.min.css",
     "start": "run-p start:*",
     "start:dev": "NODE_ENV=development postcss src/chisel.css -o dist/chisel.css -w",
     "start:prod": "NODE_ENV=production postcss src/chisel.css -o dist/chisel.min.css -w",
