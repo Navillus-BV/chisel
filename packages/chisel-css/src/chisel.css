@@ -35,10 +35,14 @@
     --chisel-primary: #002244;
     --chisel-secondary: #3ea8f4;
     --chisel-neutral-50: #111827;
+    --chisel-neutral-100: #1f2937;
     --chisel-neutral-200: #374151;
-    --chisel-neutral-300: #6b7280;
-    --chisel-neutral-500: #6b7280;
+    --chisel-neutral-300: #4b5563;
+    --chisel-neutral-400: #6b7280;
+    --chisel-neutral-500: #9ca3af;
+    --chisel-neutral-600: #d1d5db;
     --chisel-neutral-700: #e5e7eb;
+    --chisel-neutral-800: #f3f4f6;
     --chisel-neutral-900: #f9fafb;
 
     & select:focus {
@@ -53,10 +57,14 @@
       --chisel-primary: #002244;
       --chisel-secondary: #3ea8f4;
       --chisel-neutral-50: #111827;
+      --chisel-neutral-100: #1f2937;
       --chisel-neutral-200: #374151;
-      --chisel-neutral-300: #6b7280;
-      --chisel-neutral-500: #6b7280;
+      --chisel-neutral-300: #4b5563;
+      --chisel-neutral-400: #6b7280;
+      --chisel-neutral-500: #9ca3af;
+      --chisel-neutral-600: #d1d5db;
       --chisel-neutral-700: #e5e7eb;
+      --chisel-neutral-800: #f3f4f6;
       --chisel-neutral-900: #f9fafb;
     }
 
