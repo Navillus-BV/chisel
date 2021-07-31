@@ -56,16 +56,21 @@ or from CDN
 ```css
 :root {
   --chisel-primary: #325476;
+  --chisel-secondary: #0b70ba;
   --chisel-neutral-50: #f9fafb;
+  --chisel-neutral-100: #f3f4f6;
   --chisel-neutral-200: #e5e7eb;
   --chisel-neutral-300: #d1d5db;
+  --chisel-neutral-400: #9ca3af;
   --chisel-neutral-500: #6b7280;
+  --chisel-neutral-600: #4b5563;
   --chisel-neutral-700: #374151;
+  --chisel-neutral-800: #1f2937;
   --chisel-neutral-900: #111827;
 }
 ```
 
-`--chisel-primary` is the primary brand color used, by default it is the same blue color as `chisel.css`'s logo. The `--chisel-neutral` colors are shades of gray used out of the box for backgrounds, text color, borders, etc.
+`--chisel-primary` is the primary brand color used, by default it is the same blue color as `chisel.css`'s logo. `--chisel-secondary` is used as an accent color for things like links. The `--chisel-neutral` colors are shades of gray used out of the box for backgrounds, text color, borders, etc.
 
 Because these are native CSS variables, you can override them globally on your page or scope color changes for particular sections of your site.
 
