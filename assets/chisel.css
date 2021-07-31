@@ -1,4 +1,4 @@
-/*! chisel v0.5.2 | MIT License | https://github.com/Navillus-BV/chisel */
+/*! chisel v0.6.1 | MIT License | https://github.com/Navillus-BV/chisel */
 
 /* Chisel Variables
  * ========================================================================== */
@@ -8,10 +8,14 @@
   --chisel-primary: #325476;
   --chisel-secondary: #0b70ba;
   --chisel-neutral-50: #f9fafb;
+  --chisel-neutral-100: #f3f4f6;
   --chisel-neutral-200: #e5e7eb;
   --chisel-neutral-300: #d1d5db;
+  --chisel-neutral-400: #9ca3af;
   --chisel-neutral-500: #6b7280;
+  --chisel-neutral-600: #4b5563;
   --chisel-neutral-700: #374151;
+  --chisel-neutral-800: #1f2937;
   --chisel-neutral-900: #111827;
 
   /* font-size variables */
@@ -30,10 +34,14 @@
     --chisel-primary: #002244;
     --chisel-secondary: #3ea8f4;
     --chisel-neutral-50: #111827;
+    --chisel-neutral-100: #1f2937;
     --chisel-neutral-200: #374151;
-    --chisel-neutral-300: #6b7280;
-    --chisel-neutral-500: #6b7280;
+    --chisel-neutral-300: #4b5563;
+    --chisel-neutral-400: #6b7280;
+    --chisel-neutral-500: #9ca3af;
+    --chisel-neutral-600: #d1d5db;
     --chisel-neutral-700: #e5e7eb;
+    --chisel-neutral-800: #f3f4f6;
     --chisel-neutral-900: #f9fafb
   }
 
@@ -143,14 +151,6 @@
 ::after {
   text-decoration: inherit; /* 1 */
   vertical-align: inherit; /* 2 */
-}
-
-/**
- * Add a margin between all elements 
- */
-
-* + * {
-  margin-top: 1em;
 }
 
 /**
@@ -851,10 +851,14 @@ summary {
       --chisel-primary: #002244;
       --chisel-secondary: #3ea8f4;
       --chisel-neutral-50: #111827;
+      --chisel-neutral-100: #1f2937;
       --chisel-neutral-200: #374151;
-      --chisel-neutral-300: #6b7280;
-      --chisel-neutral-500: #6b7280;
+      --chisel-neutral-300: #4b5563;
+      --chisel-neutral-400: #6b7280;
+      --chisel-neutral-500: #9ca3af;
+      --chisel-neutral-600: #d1d5db;
       --chisel-neutral-700: #e5e7eb;
+      --chisel-neutral-800: #f3f4f6;
       --chisel-neutral-900: #f9fafb;
     }
 
