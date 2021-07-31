@@ -171,14 +171,6 @@
 }
 
 /**
- * Add a margin between all elements 
- */
-
-* + * {
-  margin-top: 1em;
-}
-
-/**
  * 1. Use the default cursor in all browsers (opinionated).
  * 2. Change the line height in all browsers (opinionated).
  * 3. Use smooth scrolling (opinionated).
