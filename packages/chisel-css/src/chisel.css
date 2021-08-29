@@ -178,7 +178,6 @@
  * 5. Use a 4-space tab width in all browsers (opinionated).
  * 6. Remove the grey highlight on links in iOS (opinionated).
  * 7. Prevent adjustments of font size after orientation changes in iOS.
- * 8. Scale font-size for responsive screens (opinionated).
  */
 
 :root {
@@ -190,19 +189,6 @@
   tab-size: 4; /* 5 */
   -webkit-tap-highlight-color: transparent; /* 6 */
   -webkit-text-size-adjust: 100%; /* 7 */
-  font-size: 14px; /* 8 */
-
-  @media (--chisel-phone) {
-    & {
-      font-size: 16px; /* 8 */
-    }
-  }
-
-  @media (--chisel-desktop) {
-    & {
-      font-size: 18px; /* 8 */
-    }
-  }
 }
 
 /**
