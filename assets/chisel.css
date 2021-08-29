@@ -1,4 +1,4 @@
-/*! chisel v0.6.1 | MIT License | https://github.com/Navillus-BV/chisel */
+/*! chisel v0.7.0 | MIT License | https://github.com/Navillus-BV/chisel */
 
 /* Chisel Variables
  * ========================================================================== */
@@ -161,7 +161,6 @@
  * 5. Use a 4-space tab width in all browsers (opinionated).
  * 6. Remove the grey highlight on links in iOS (opinionated).
  * 7. Prevent adjustments of font size after orientation changes in iOS.
- * 8. Scale font-size for responsive screens (opinionated).
  */
 
 :root {
@@ -174,7 +173,6 @@
      tab-size: 4; /* 5 */
   -webkit-tap-highlight-color: transparent; /* 6 */
   -webkit-text-size-adjust: 100%; /* 7 */
-  font-size: 14px /* 8 */
 }
 
 /**
@@ -865,18 +863,6 @@ summary {
     :root:not([data-chisel-theme]) select:focus {
       /* TODO: Find a way to use CSS variables for the down arrow */
       background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%2386a8cb" d="M0,0l6,8l6-8"/></svg>');
-    }
-}
-
-@media (min-width: 375px) {
-    :root {
-      font-size: 16px; /* 8 */
-    }
-}
-
-@media (min-width: 1280px) {
-    :root {
-      font-size: 18px; /* 8 */
     }
 }
 
