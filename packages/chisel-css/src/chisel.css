@@ -369,6 +369,7 @@ input[type='submit'] {
   align-items: center;
   justify-content: center;
   font-weight: 700;
+  font-size: 1rem;
   height: 3em;
   letter-spacing: 0.05em;
   padding: 0 1.5em;
