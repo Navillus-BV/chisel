@@ -445,7 +445,6 @@ pre {
     background: transparent; /* 1 */
     border-radius: 0; /* 4 */
     display: block; /* 4 */
-    padding: 1rem 1.5rem; /* 4 */
     white-space: pre; /* 4 */
   }
 }
