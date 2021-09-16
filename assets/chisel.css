@@ -1,4 +1,4 @@
-/*! chisel v0.7.1 | MIT License | https://github.com/Navillus-BV/chisel */
+/*! chisel v0.7.2 | MIT License | https://github.com/Navillus-BV/chisel */
 
 /* Chisel Variables
  * ========================================================================== */
@@ -180,9 +180,8 @@
  * 2. Remove the margin in all browsers (opinionated).
  * 3. Set background to neutral-50 (theme).
  * 4. Set text color to neutral-900 (theme).
- * 5. Set font size to chisel-p (theme).
- * 6. Improve consistency of fonts in all browsers (opinionated).
- * 7. Use font smoothing on all supported browsers (opinionated).
+ * 5. Improve consistency of fonts in all browsers (opinionated).
+ * 6. Use font smoothing on all supported browsers (opinionated).
  */
 
 body {
@@ -194,14 +193,12 @@ body {
   background: var(--chisel-neutral-50); /* 3 */
   color: #111827;
   color: var(--chisel-neutral-900); /* 4 */
-  font-size: 1rem;
-  font-size: var(--chisel-p); /* 5 */
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; /* 6 */
-  font-weight: 400; /* 6 */
-  -webkit-font-smoothing: antialiased; /* 7 */
-  -moz-osx-font-smoothing: grayscale; /* 7 */
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; /* 5 */
+  font-weight: 400; /* 5 */
+  -webkit-font-smoothing: antialiased; /* 6 */
+  -moz-osx-font-smoothing: grayscale; /* 6 */
 }
 
 /* Reduced Motion
@@ -456,7 +453,6 @@ pre > code {
     background: transparent; /* 1 */
     border-radius: 0; /* 4 */
     display: block; /* 4 */
-    padding: 1rem 1.5rem; /* 4 */
     white-space: pre; /* 4 */
   }
 
