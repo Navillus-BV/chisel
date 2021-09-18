@@ -375,7 +375,6 @@ input[type='submit'] {
   text-decoration: none;
   text-transform: uppercase;
   white-space: nowrap;
-  -webkit-appearance: button;
   transition: color 150ms, background-color 150ms, border-color 150ms;
 
   /**
