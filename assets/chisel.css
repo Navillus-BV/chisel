@@ -1,4 +1,4 @@
-/*! chisel v0.7.4 | MIT License | https://github.com/Navillus-BV/chisel */
+/*! chisel v0.7.5 | MIT License | https://github.com/Navillus-BV/chisel */
 
 /* Chisel Variables
  * ========================================================================== */
@@ -363,20 +363,11 @@ input[type='submit'] {
   transition: color 150ms, background-color 150ms, border-color 150ms
 
   /**
-     * Default button focus and hover states
+     * Default button hover states
      */
 }
 
-.button:focus,
-  .button:hover,
-  button:focus,
-  button:hover,
-  input[type='button']:focus,
-  input[type='button']:hover,
-  input[type='reset']:focus,
-  input[type='reset']:hover,
-  input[type='submit']:focus,
-  input[type='submit']:hover {
+.button:hover, button:hover, input[type='button']:hover, input[type='reset']:hover, input[type='submit']:hover {
     background-color: #6b7280;
     background-color: var(--chisel-neutral-500);
     border-color: #6b7280;
@@ -513,6 +504,12 @@ select {
 input[type='color']:focus, input[type='date']:focus, input[type='datetime']:focus, input[type='datetime-local']:focus, input[type='email']:focus, input[type='month']:focus, input[type='number']:focus, input[type='password']:focus, input[type='search']:focus, input[type='tel']:focus, input[type='text']:focus, input[type='url']:focus, input[type='week']:focus, input:not([type]):focus, textarea:focus, select:focus {
     border-color: #325476;
     border-color: var(--chisel-primary);
+    outline: none;
+  }
+
+input[type='color']:focus-visible, input[type='date']:focus-visible, input[type='datetime']:focus-visible, input[type='datetime-local']:focus-visible, input[type='email']:focus-visible, input[type='month']:focus-visible, input[type='number']:focus-visible, input[type='password']:focus-visible, input[type='search']:focus-visible, input[type='tel']:focus-visible, input[type='text']:focus-visible, input[type='url']:focus-visible, input[type='week']:focus-visible, input:not([type]):focus-visible, textarea:focus-visible, select:focus-visible {
+    outline: 3px solid #325476;
+    outline: 3px solid var(--chisel-primary);
   }
 
 /**
@@ -686,8 +683,7 @@ a {
   transition: color 150ms /* 4 */
 }
 
-a:focus,
-  a:hover {
+a:hover {
     color: #374151;
     color: var(--chisel-neutral-700);
   }
