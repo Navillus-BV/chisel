@@ -378,9 +378,8 @@ input[type='submit'] {
   transition: color 150ms, background-color 150ms, border-color 150ms;
 
   /**
-     * Default button focus and hover states
+     * Default button hover states
      */
-  &:focus,
   &:hover {
     background-color: var(--chisel-neutral-500);
     border-color: var(--chisel-neutral-500);
@@ -498,6 +497,11 @@ select {
 
   &:focus {
     border-color: var(--chisel-primary);
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--chisel-primary);
   }
 }
 
@@ -668,7 +672,6 @@ a {
   cursor: pointer; /* 3 */
   transition: color 150ms; /* 4 */
 
-  &:focus,
   &:hover {
     color: var(--chisel-neutral-700);
   }
