@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');
 
-:root {
+:where(:root) {
   --chisel-prism-tab-size: 2;
   --chisel-prism-bg: #1d1f21;
   --chisel-prism-fg: #c5c8c6;
