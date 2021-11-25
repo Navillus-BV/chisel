@@ -6,7 +6,7 @@
 @custom-media --chisel-tablet (min-width: 672px);
 @custom-media --chisel-desktop (min-width: 1280px);
 
-:root {
+:where(:root) {
   /* Color variables */
   --chisel-primary: #325476;
   --chisel-secondary: #0b70ba;
@@ -29,9 +29,32 @@
   --chisel-h5: 1.25rem;
   --chisel-p: 1rem;
   --chisel-h6: 0.8rem;
+}
 
-  /* dark theme via HTML dataset */
-  &[data-chisel-theme='dark'] {
+/* dark theme via HTML dataset */
+:where(:root[data-chisel-theme='dark']) {
+  --chisel-primary: #002244;
+  --chisel-secondary: #3ea8f4;
+  --chisel-neutral-50: #111827;
+  --chisel-neutral-100: #1f2937;
+  --chisel-neutral-200: #374151;
+  --chisel-neutral-300: #4b5563;
+  --chisel-neutral-400: #6b7280;
+  --chisel-neutral-500: #9ca3af;
+  --chisel-neutral-600: #d1d5db;
+  --chisel-neutral-700: #e5e7eb;
+  --chisel-neutral-800: #f3f4f6;
+  --chisel-neutral-900: #f9fafb;
+}
+
+:where(:root[data-chisel-theme='dark'] select:focus) {
+  /* TODO: Find a way to use CSS variables for the down arrow */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%2386a8cb" d="M0,0l6,8l6-8"/></svg>');
+}
+
+/* dark theme via native prefers-color-scheme */
+@media (prefers-color-scheme: dark) {
+  :where(:root:not([data-chisel-theme])) {
     --chisel-primary: #002244;
     --chisel-secondary: #3ea8f4;
     --chisel-neutral-50: #111827;
@@ -44,34 +67,11 @@
     --chisel-neutral-700: #e5e7eb;
     --chisel-neutral-800: #f3f4f6;
     --chisel-neutral-900: #f9fafb;
-
-    & select:focus {
-      /* TODO: Find a way to use CSS variables for the down arrow */
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%2386a8cb" d="M0,0l6,8l6-8"/></svg>');
-    }
   }
 
-  /* dark theme via native prefers-color-scheme */
-  @media (prefers-color-scheme: dark) {
-    &:not([data-chisel-theme]) {
-      --chisel-primary: #002244;
-      --chisel-secondary: #3ea8f4;
-      --chisel-neutral-50: #111827;
-      --chisel-neutral-100: #1f2937;
-      --chisel-neutral-200: #374151;
-      --chisel-neutral-300: #4b5563;
-      --chisel-neutral-400: #6b7280;
-      --chisel-neutral-500: #9ca3af;
-      --chisel-neutral-600: #d1d5db;
-      --chisel-neutral-700: #e5e7eb;
-      --chisel-neutral-800: #f3f4f6;
-      --chisel-neutral-900: #f9fafb;
-    }
-
-    &:not([data-chisel-theme]) select:focus {
-      /* TODO: Find a way to use CSS variables for the down arrow */
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%2386a8cb" d="M0,0l6,8l6-8"/></svg>');
-    }
+  :where(:root:not([data-chisel-theme]) select:focus) {
+    /* TODO: Find a way to use CSS variables for the down arrow */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%2386a8cb" d="M0,0l6,8l6-8"/></svg>');
   }
 }
 
@@ -82,7 +82,7 @@
  * Show a busy cursor.
  */
 
-[aria-busy='true'] {
+:where([aria-busy='true']) {
   cursor: progress;
 }
 
@@ -90,7 +90,7 @@
  * Ensure a pointer is used.
  */
 
-[aria-controls] {
+:where([aria-controls]) {
   cursor: pointer;
 }
 
@@ -98,8 +98,7 @@
  * Block cursors on disabled elements.
  */
 
-[aria-disabled='true'],
-[disabled] {
+:where([aria-disabled='true'], [disabled]) {
   cursor: not-allowed;
 }
 
@@ -110,7 +109,7 @@
  * 2. added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space)
  */
 
-.sr-only {
+:where(.sr-only) {
   border: 0;
   padding: 0;
   margin: 0;
@@ -120,26 +119,26 @@
   overflow: hidden;
   clip-path: inset(50%); /* 1 */
   white-space: nowrap; /* 2 */
+}
 
-  /**
-   * Visually show the element when focused.
-   */
-  &.sr-only-focusable:focus {
-    width: auto;
-    height: auto;
-    padding: 0;
-    margin: 0;
-    overflow: visible;
-    clip-path: initial;
-    white-space: normal;
-  }
+/**
+ * Visually show the element when focused.
+ */
+:where(.sr-only.sr-only-focusable:focus) {
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip-path: initial;
+  white-space: normal;
 }
 
 /**
  * Visually hide screen reader-only elements that aren't focused.
  */
 
-[aria-hidden='false'][hidden]:not(:focus) {
+:where([aria-hidden='false'][hidden]:not(:focus)) {
   clip: rect(0, 0, 0, 0);
   position: absolute;
 }
@@ -152,9 +151,7 @@
  * 2. Backgrounds do not repeat by default (opinionated).
  */
 
-*,
-::before,
-::after {
+:where(*, ::before, ::after) {
   box-sizing: border-box; /* 1 */
   background-repeat: no-repeat; /* 2 */
 }
@@ -164,8 +161,7 @@
  * 2. Add vertical alignment inheritance in all browsers (opinionated).
  */
 
-::before,
-::after {
+:where(::before, ::after) {
   text-decoration: inherit; /* 1 */
   vertical-align: inherit; /* 2 */
 }
@@ -180,7 +176,7 @@
  * 7. Prevent adjustments of font size after orientation changes in iOS.
  */
 
-:root {
+:where(:root) {
   cursor: default; /* 1 */
   line-height: 1.75; /* 2 */
   scroll-behavior: smooth; /* 3 */
@@ -199,7 +195,7 @@
  * 5. Improve consistency of fonts in all browsers (opinionated).
  * 6. Use font smoothing on all supported browsers (opinionated).
  */
-body {
+:where(body) {
   block-size: -moz-available; /* 1 */
   block-size: -webkit-fill-available; /* 1 */
   block-size: stretch; /* 1 */
@@ -225,9 +221,7 @@ body {
   */
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  ::before,
-  ::after {
+  :where(*, ::before, ::after) {
     animation-delay: -1ms !important; /* 1 */
     animation-duration: 1ms !important; /* 1 */
     animation-iteration-count: 1 !important; /* 1 */
@@ -245,8 +239,7 @@ body {
  * Add the correct font weight in Chrome, Edge, and Safari.
  */
 
-b,
-strong {
+:where(b, strong) {
   font-weight: bold;
 }
 
@@ -254,7 +247,7 @@ strong {
  * Treat <u> like any other block element.
  */
 
-u {
+:where(u) {
   display: inline-block;
 }
 
@@ -262,7 +255,7 @@ u {
  * Add the correct text decoration in Safari.
  */
 
-abbr[title] {
+:where(abbr[title]) {
   text-decoration: underline;
   text-decoration: underline dotted;
 }
@@ -272,17 +265,12 @@ abbr[title] {
  * See https://type-scale.com/ for details.
  */
 
-p {
+:where(p) {
   margin-top: 0;
   margin-bottom: 1em;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+:where(h1, h2, h3, h4, h5, h6) {
   margin: 3em 0 1.38em;
   font-weight: 400;
   line-height: 1.3;
@@ -295,35 +283,28 @@ h6 {
   }
 }
 
-h1,
-.h1 {
+:where(h1, .h1) {
   margin-top: 0;
   font-size: var(--chisel-h1);
 }
 
-h2,
-.h2 {
+:where(h2, .h2) {
   font-size: var(--chisel-h2);
 }
 
-h3,
-.h3 {
+:where(h3, .h3) {
   font-size: var(--chisel-h3);
 }
 
-h4,
-.h4 {
+:where(h4, .h4) {
   font-size: var(--chisel-h4);
 }
 
-h5,
-.h5 {
+:where(h5, .h5) {
   font-size: var(--chisel-h5);
 }
 
-h6,
-small,
-.h6 {
+:where(h6, small, .h6) {
   font-size: var(--chisel-h6);
   letter-spacing: 0.05em;
 }
@@ -336,25 +317,21 @@ small,
  * 2. Reset whitespace.
  */
 
-blockquote {
+:where(blockquote) {
   border-left: 3px solid var(--chisel-neutral-300); /* 1 */
   margin-left: 0; /* 2 */
   margin-right: 0; /* 2 */
   padding: 1em 1.5em; /* 2 */
+}
 
-  & *:last-child {
-    margin-bottom: 0; /* 2 */
-  }
+:where(blockquote *:last-child) {
+  margin-bottom: 0; /* 2 */
 }
 
 /* Buttons
  * ========================================================================== */
 
-.button,
-button,
-input[type='button'],
-input[type='reset'],
-input[type='submit'] {
+:where(.button, button, input[type='button'], input[type='reset'], input[type='submit']) {
   /**
      * Default button theme
      */
@@ -402,10 +379,7 @@ input[type='submit'] {
  * 2. Correct the odd `em` font sizing in all browsers.
  * 3. Add rounded corners (theme).
  */
-code,
-kbd,
-samp,
-pre {
+:where(code, kbd, samp, pre) {
   font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo,
     monospace; /* 1 */
   font-size: 1em; /* 2 */
@@ -418,7 +392,7 @@ pre {
  * 3. Don't wrap inline code blocks (use pre > wrap for multiline blocks)
  */
 
-code {
+:where(code) {
   background: var(--chisel-neutral-200); /* 1 */
   margin: 0 0.2rem; /* 2 */
   padding: 0.2rem 0.5rem; /* 2 */
@@ -431,18 +405,18 @@ code {
  * 3. Disable scrolling in pre (opinionated).
  * 4. Improve whitespace and line breaks on all browsers.
  */
-pre {
+:where(pre) {
   background: var(--chisel-neutral-200); /* 1 */
   border-left: 3px solid var(--chisel-primary); /* 2 */
   overflow-y: hidden; /* 3 */
   white-space: normal; /* 4 */
+}
 
-  & > code {
-    background: transparent; /* 1 */
-    border-radius: 0; /* 4 */
-    display: block; /* 4 */
-    white-space: pre; /* 4 */
-  }
+:where(pre > code) {
+  background: transparent; /* 1 */
+  border-radius: 0; /* 4 */
+  display: block; /* 4 */
+  white-space: pre; /* 4 */
 }
 
 /* Dividers
@@ -452,7 +426,7 @@ pre {
  * 1. Style as a 1px horizontal rule in color neutral-300 (theme).
  * 2. Add a default top & bottom margin (opinionated).
  */
-hr {
+:where(hr) {
   border: 0;
   border-top: 1px solid var(--chisel-neutral-300);
   margin: 3rem 0;
@@ -464,22 +438,7 @@ hr {
 /**
  * Default styling for all default HTML input elements
  */
-input[type='color'],
-input[type='date'],
-input[type='datetime'],
-input[type='datetime-local'],
-input[type='email'],
-input[type='month'],
-input[type='number'],
-input[type='password'],
-input[type='search'],
-input[type='tel'],
-input[type='text'],
-input[type='url'],
-input[type='week'],
-input:not([type]),
-textarea,
-select {
+:where(input[type='color'], input[type='date'], input[type='datetime'], input[type='datetime-local'], input[type='email'], input[type='month'], input[type='number'], input[type='password'], input[type='search'], input[type='tel'], input[type='text'], input[type='url'], input[type='week'], input:not([type]), textarea, select) {
   -webkit-appearance: none;
   background-color: transparent;
   border: 1px solid var(--chisel-neutral-300);
@@ -510,7 +469,7 @@ select {
  * 2. Correct the outline style in Safari.
  */
 
-input[type='search'] {
+:where(input[type='search']) {
   -webkit-appearance: textfield; /* 1 */
   outline-offset: -2px; /* 2 */
 }
@@ -519,7 +478,7 @@ input[type='search'] {
  * Correct the text style of placeholders in Chrome, Edge, and Safari.
  */
 
-::-webkit-input-placeholder {
+:where(::-webkit-input-placeholder) {
   color: inherit;
   opacity: 0.54;
 }
@@ -528,7 +487,7 @@ input[type='search'] {
  * Remove the inner padding in Chrome, Edge, and Safari on macOS.
  */
 
-::-webkit-search-decoration {
+:where(::-webkit-search-decoration) {
   -webkit-appearance: none;
 }
 
@@ -537,7 +496,7 @@ input[type='search'] {
  * 2. Change font properties to `inherit` in Safari.
   */
 
-::-webkit-file-upload-button {
+:where(::-webkit-file-upload-button) {
   -webkit-appearance: button; /* 1 */
   font: inherit; /* 2 */
 }
@@ -547,7 +506,7 @@ input[type='search'] {
  * See: https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737
  */
 
-:-moz-ui-invalid {
+:where(:-moz-ui-invalid) {
   box-shadow: none;
 }
 
@@ -555,7 +514,7 @@ input[type='search'] {
  * Style select boxes with a border and arrow of primary color (theme).
  */
 
-select {
+:where(select) {
   /* TODO: Find a way to use CSS variables for the down arrow */
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%23d1d5db" d="M0,0l6,8l6-8"/></svg>')
     center right no-repeat;
@@ -579,7 +538,7 @@ select {
  * 3. Change the resize direction in all browsers (opinionated).
  */
 
-textarea {
+:where(textarea) {
   min-height: 6.5rem; /* 1 */
   margin: 0; /* 2 */
   overflow: auto; /* 3 */
@@ -592,8 +551,7 @@ textarea {
  * 2. Add a default bottom margin (opinionated).
  */
 
-label,
-legend {
+:where(label, legend) {
   display: block; /* 2 */
   font-weight: 700; /* 1 */
   margin-bottom: 0.5rem; /* 2 */
@@ -610,10 +568,20 @@ legend {
 }
 
 /**
+ * Label state for inline labels (opinionated).
+ */
+
+:where(label.label-inline, legend.label-inline) {
+  display: inline-block;
+  font-weight: normal;
+  margin-left: 0.5rem;
+}
+
+/**
  * Remove border and padding
  */
 
-fieldset {
+:where(fieldset) {
   border-width: 0;
   padding: 0;
 }
@@ -622,8 +590,7 @@ fieldset {
  * Default checkboxes and radio buttons to inline (opinionated).
  */
 
-input[type='checkbox'],
-input[type='radio'] {
+:where(input[type='checkbox'], input[type='radio']) {
   display: inline;
 }
 
@@ -634,7 +601,7 @@ input[type='radio'] {
  * Remove the border on iframes in all browsers (opinionated).
  */
 
-iframe {
+:where(iframe) {
   border-style: none;
 }
 
@@ -644,8 +611,7 @@ iframe {
 /**
  * Limit images to their parent's width.
  */
-img,
-svg {
+:where(img, svg) {
   max-width: 100%;
 }
 
@@ -653,7 +619,7 @@ svg {
  * Change the fill color to match the text color in all browsers (opinionated).
  */
 
-svg:not([fill]) {
+:where(svg:not([fill])) {
   fill: currentColor;
 }
 
@@ -666,7 +632,7 @@ svg:not([fill]) {
  * 3. Ensure the pointer cursor is shown for all links (opinionated).
  * 4. Animate color change (theme).
  */
-a {
+:where(a) {
   color: var(--chisel-secondary); /* 1 */
   text-decoration: underline; /* 2 */
   cursor: pointer; /* 3 */
@@ -686,16 +652,12 @@ a {
  * 3. Shrink font 10% for nested lists.
  * 4. Add spacing around nested lists.
  */
-dl,
-ol,
-ul {
+:where(dl, ol, ul) {
   list-style: none; /* 1 */
   margin-left: 0; /* 2 */
   padding-left: 0; /* 2 */
 
-  & dl,
-  & ol,
-  & ul {
+  & :where(dl, ol, ul) {
     font-size: 90%; /* 3 */
     margin: 1.5rem 0 1.5rem 3rem; /* 4 */
   }
@@ -705,7 +667,7 @@ ul {
  * Use decimals for ordered list item delimiters.
  */
 
-ol {
+:where(ol) {
   list-style: decimal inside;
 }
 
@@ -713,14 +675,15 @@ ol {
  * Use hollow circles for unordered list item delimiters.
  */
 
-ul {
+:where(ul) {
   list-style: circle inside;
 }
 
 /**
  * Remove vertical spacing.
  */
-li {
+
+:where(li) {
   margin-top: 0;
 }
 
@@ -731,7 +694,7 @@ li {
  * Add the correct vertical alignment in Chrome, Edge, and Firefox.
  */
 
-progress {
+:where(progress) {
   vertical-align: baseline;
 }
 
@@ -746,7 +709,7 @@ progress {
  * 5. Remove text indentation from table contents in Chrome, Edge, and Safari.
  * 6. On screens larger than phones, remove horizontal scrolling.
  */
-table {
+:where(table) {
   border-spacing: 0; /* 1 */
   border-color: inherit; /* 2 */
   display: block; /* 3 */
@@ -754,12 +717,12 @@ table {
   text-align: left; /* 4 */
   text-indent: 0; /* 5 */
   width: 100%; /* 3 */
+}
 
-  @media (--chisel-tablet) {
-    & {
-      display: table; /* 6 */
-      overflow-x: initial; /* 6 */
-    }
+@media (--chisel-tablet) {
+  :where(table) {
+    display: table; /* 6 */
+    overflow-x: initial; /* 6 */
   }
 }
 
@@ -767,8 +730,7 @@ table {
  * 1. Add a bottom border with neutral-200 (theme).
  * 2. Add padding around every cell.
  */
-td,
-th {
+:where(td, th) {
   border-bottom: 1px solid var(--chisel-neutral-200); /* 1 */
   padding: 1.2rem 1.5rem; /* 2 */
 
@@ -788,7 +750,7 @@ th {
  * Add the correct styles in Safari.
  */
 
-dialog {
+:where(dialog) {
   background-color: var(--chisel-neutral-50);
   border: 1px solid var(--chisel-neutral-50);
   color: var(--chisel-neutral-900);
@@ -806,7 +768,7 @@ dialog {
   width: fit-content;
 }
 
-dialog:not([open]) {
+:where(dialog:not([open])) {
   display: none;
 }
 
@@ -814,6 +776,6 @@ dialog:not([open]) {
  * Add the correct display in Safari.
  */
 
-summary {
+:where(summary) {
   display: list-item;
 }
