@@ -25,3 +25,9 @@
 {#if !flip}<slot name="component" />{/if}
 <label {id} for={htmlFor} on:click|trusted><slot /></label>
 {#if flip}<slot name="component" />{/if}
+
+<style>
+	label {
+		margin: 0 0 0 0.5em;
+	}
+</style>
