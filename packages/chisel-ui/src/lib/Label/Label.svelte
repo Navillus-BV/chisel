@@ -1,15 +1,7 @@
-<script lang="ts" context="module">
-	export const LABEL_CONTEXT = {};
-
-	export interface LabelContext {
-		labelledBy: string;
-		bind(id: string): void;
-	}
-</script>
-
 <script lang="ts">
 	import { setContext } from 'svelte';
-	import { uuid } from './id';
+	import { LABEL_CONTEXT, LabelContext } from '.';
+	import { uuid } from '../id';
 
 	export let id: string = uuid();
 	export let flip = false;

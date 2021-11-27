@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Label from '../lib/Label.svelte';
-	import Switch from '../lib/Switch.svelte';
+	import Label from '../lib/Label';
+	import Switch from '../lib/Switch';
 
 	export let checked = false;
 	export let label: string;

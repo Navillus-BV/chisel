@@ -1,5 +1,5 @@
 <script lang="ts">
-	import AspectRatio from '../lib/AspectRatio.svelte';
+	import AspectRatio from '../lib/AspectRatio';
 
 	export let src: string;
 	export let alt: string;

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import CheckIcon from './icons/CheckIcon.svelte';
-	import Checkbox from '../lib/Checkbox.svelte';
-	import Label from '../lib/Label.svelte';
+	import Checkbox from '../lib/Checkbox';
+	import Label from '../lib/Label';
 
 	export let checked = false;
 	export let label: string;

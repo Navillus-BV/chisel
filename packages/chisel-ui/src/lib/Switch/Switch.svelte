@@ -1,16 +1,15 @@
 <script lang="ts">
 	import { createEventDispatcher, getContext } from 'svelte';
-	import { LABEL_CONTEXT } from './Label.svelte';
-	import type { LabelContext } from './Label.svelte';
-	import { uuid } from './id';
+	import { LABEL_CONTEXT, LabelContext } from '../Label';
+	import { uuid } from '../id';
 
 	export let checked = false;
-	export let id = uuid();
 	export let value = 'on';
+	export let required: boolean | undefined = undefined;
 	export let disabled = false;
-	export let required = false;
+	export let id: string | undefined = uuid();
 
-	let className = 'checkbox';
+	let className = 'switch';
 	export { className as class };
 
 	const context = getContext<LabelContext>(LABEL_CONTEXT);
@@ -29,7 +28,7 @@
 <button
 	class={className}
 	type="button"
-	role="checkbox"
+	role="switch"
 	{id}
 	aria-checked={checked}
 	aria-required={required}
@@ -38,12 +37,10 @@
 	{disabled}
 	{value}
 >
-	{#if checked}
-		<slot />
-	{/if}
+	<span />
 </button>
 
-<input type="checkbox" class="sr-only" aria-hidden tabindex="-1" {value} bind:checked />
+<input class="sr-only" type="checkbox" aria-hidden tabindex="-1" bind:checked />
 
 <style>
 	:where(button) {
