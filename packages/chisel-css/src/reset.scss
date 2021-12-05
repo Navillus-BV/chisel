@@ -6,14 +6,16 @@
 /**
  * 1. Use a more intuitive box-sizing model
  */
-:where(*, *::before, *::after) {
+*,
+::before,
+::after {
   box-sizing: border-box;
 }
 
 /**
  * 2. Remove default margins
  */
-:where(*) {
+* {
   margin: 0;
 }
 
