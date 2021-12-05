@@ -1,0 +1,59 @@
+/**
+ * Show a busy cursor.
+ */
+:where([aria-busy='true']) {
+  cursor: progress;
+}
+
+/**
+ * Ensure a pointer is used.
+ */
+:where([aria-controls]) {
+  cursor: pointer;
+}
+
+/**
+ * Block cursors on disabled elements.
+ */
+:where([aria-disabled='true'], [disabled]) {
+  cursor: not-allowed;
+}
+
+/**
+ * Handle hiding and showing elements that are meant only for screen readers.
+ *
+ * 1. modern browsers, clip-path works inwards from each corner
+ * 2. added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space)
+ */
+:where(.sr-only) {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip-path: inset(50%); /* 1 */
+  white-space: nowrap; /* 2 */
+}
+
+/**
+ * Visually show the element when focused.
+ */
+:where(.sr-only.sr-only-focusable:focus) {
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip-path: initial;
+  white-space: normal;
+}
+
+/**
+ * Visually hide screen reader-only elements that aren't focused.
+ */
+:where([aria-hidden='false'][hidden]:not(:focus)) {
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}

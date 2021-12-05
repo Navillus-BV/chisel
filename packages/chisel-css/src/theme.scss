@@ -1,0 +1,58 @@
+:where(:root) {
+  /* Color variables */
+  --chisel-primary: #325476;
+  --chisel-secondary: #0b70ba;
+  --chisel-neutral-50: #f9fafb;
+  --chisel-neutral-100: #f3f4f6;
+  --chisel-neutral-200: #e5e7eb;
+  --chisel-neutral-300: #d1d5db;
+  --chisel-neutral-400: #9ca3af;
+  --chisel-neutral-500: #6b7280;
+  --chisel-neutral-600: #4b5563;
+  --chisel-neutral-700: #374151;
+  --chisel-neutral-800: #1f2937;
+  --chisel-neutral-900: #111827;
+
+  /* font-size variables */
+  --chisel-h1: 3.052rem;
+  --chisel-h2: 2.441rem;
+  --chisel-h3: 1.953rem;
+  --chisel-h4: 1.563rem;
+  --chisel-h5: 1.25rem;
+  --chisel-p: 1rem;
+  --chisel-h6: 0.8rem;
+
+  /* dark theme via HTML dataset */
+  &[data-chisel-theme='dark'] {
+    --chisel-primary: #002244;
+    --chisel-secondary: #3ea8f4;
+    --chisel-neutral-50: #111827;
+    --chisel-neutral-100: #1f2937;
+    --chisel-neutral-200: #374151;
+    --chisel-neutral-300: #4b5563;
+    --chisel-neutral-400: #6b7280;
+    --chisel-neutral-500: #9ca3af;
+    --chisel-neutral-600: #d1d5db;
+    --chisel-neutral-700: #e5e7eb;
+    --chisel-neutral-800: #f3f4f6;
+    --chisel-neutral-900: #f9fafb;
+  }
+
+  /* dark theme via native prefers-color-scheme */
+  @media (prefers-color-scheme: dark) {
+    &:not([data-chisel-theme]) {
+      --chisel-primary: #002244;
+      --chisel-secondary: #3ea8f4;
+      --chisel-neutral-50: #111827;
+      --chisel-neutral-100: #1f2937;
+      --chisel-neutral-200: #374151;
+      --chisel-neutral-300: #4b5563;
+      --chisel-neutral-400: #6b7280;
+      --chisel-neutral-500: #9ca3af;
+      --chisel-neutral-600: #d1d5db;
+      --chisel-neutral-700: #e5e7eb;
+      --chisel-neutral-800: #f3f4f6;
+      --chisel-neutral-900: #f9fafb;
+    }
+  }
+}

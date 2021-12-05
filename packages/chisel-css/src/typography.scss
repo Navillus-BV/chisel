@@ -1,0 +1,62 @@
+:where(:root) {
+  /* font-size variables */
+  --chisel-h1: 3.052rem;
+  --chisel-h2: 2.441rem;
+  --chisel-h3: 1.953rem;
+  --chisel-h4: 1.563rem;
+  --chisel-h5: 1.25rem;
+  --chisel-p: 1rem;
+  --chisel-h6: 0.8rem;
+
+  /* font-family variables */
+  --font-body: system-ui, /* macOS 10.11-10.12 */ -apple-system,
+    /* Windows 6+ */ 'Segoe UI', /* Android 4+ */ 'Roboto',
+    /* Ubuntu 10.10+ */ 'Ubuntu', /* Gnome 3+ */ 'Cantarell',
+    /* KDE Plasma 5+ */ 'Noto Sans', /* fallback */ sans-serif,
+    /* macOS emoji */ 'Apple Color Emoji', /* Windows emoji */ 'Segoe UI Emoji',
+    /* Windows emoji */ 'Segoe UI Symbol', /* Linux emoji */ 'Noto Color Emoji';
+  --font-mono: ui-monospace, /* macOS 10.10+ */ 'Menlo',
+    /* Windows 6+ */ 'Consolas', /* Android 4+ */ 'Roboto Mono',
+    /* Ubuntu 10.10+ */ 'Ubuntu Monospace', /* KDE Plasma 5+ */ 'Noto Mono',
+    /* KDE Plasma 4+ */ 'Oxygen Mono',
+    /* Linux/OpenOffice fallback */ 'Liberation Mono', /* fallback */ monospace,
+    /* macOS emoji */ 'Apple Color Emoji', /* Windows emoji */ 'Segoe UI Emoji',
+    /* Windows emoji */ 'Segoe UI Symbol', /* Linux emoji */ 'Noto Color Emoji';
+}
+
+* {
+  line-height: calc(1em + 0.5rem);
+}
+
+:where(html) {
+  font-family: var(--font-body);
+}
+
+:where(code, kbd, samp, pre) {
+  font-family: var(--font-mono);
+}
+
+:where(h1, .h1) {
+  font-size: var(--chisel-h1);
+}
+
+:where(h2, .h2) {
+  font-size: var(--chisel-h2);
+}
+
+:where(h3, .h3) {
+  font-size: var(--chisel-h3);
+}
+
+:where(h4, .h4) {
+  font-size: var(--chisel-h4);
+}
+
+:where(h5, .h5) {
+  font-size: var(--chisel-h5);
+}
+
+:where(h6, small, .h6) {
+  font-size: var(--chisel-h6);
+  letter-spacing: 0.05em;
+}
